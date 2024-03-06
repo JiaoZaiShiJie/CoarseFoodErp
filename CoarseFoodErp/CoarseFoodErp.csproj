@@ -1,0 +1,290 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{92CF9704-5336-46DB-8883-1E417FA5736E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>CoarseFoodErp</RootNamespace>
+    <AssemblyName>CoarseFoodErp</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v23.1, Version=23.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\SerialPort\SerialPort\bin\Debug\DevExpress.BonusSkins.v23.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.Desktop.v23.1, Version=23.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v23.1, Version=23.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Drawing.v23.1, Version=23.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v23.1.Core, Version=23.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v23.1, Version=23.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v23.1, Version=23.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v23.1, Version=23.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="Jot, Version=2.1.17.0, Culture=neutral, PublicKeyToken=6b498f69c5f88322, processorArchitecture=MSIL">
+      <HintPath>..\packages\Jot.2.1.17\lib\netstandard2.0\Jot.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.8.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.8.0.0\lib\net462\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.8.0.0\lib\net462\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="Quartz, Version=3.8.1.0, Culture=neutral, PublicKeyToken=f6b8c98a402cc8a4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Quartz.3.8.1\lib\net472\Quartz.dll</HintPath>
+    </Reference>
+    <Reference Include="SqlSugar, Version=5.1.4.143, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SqlSugar.5.1.4.143\lib\SqlSugar.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.8.0.0\lib\net462\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TouchSocket, Version=2.0.0.0, Culture=neutral, PublicKeyToken=5f39d7da98dac6a9, processorArchitecture=MSIL">
+      <HintPath>..\packages\TouchSocket.2.0.0-rc.1\lib\net472\TouchSocket.dll</HintPath>
+    </Reference>
+    <Reference Include="TouchSocket.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=d6c415a2f58eda72, processorArchitecture=MSIL">
+      <HintPath>..\packages\TouchSocket.Core.2.0.0-rc.1\lib\net472\TouchSocket.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="UIAutomationClient" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CoarseFoodControl\StockControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CoarseFoodControl\StockControl.Designer.cs">
+      <DependentUpon>StockControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CoarseFoodForm\SettIementManagement\SettlementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CoarseFoodForm\SettIementManagement\SettlementForm.Designer.cs">
+      <DependentUpon>SettlementForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CoarseFoodForm\SysSeting\SysSetingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CoarseFoodForm\SysSeting\SysSetingForm.Designer.cs">
+      <DependentUpon>SysSetingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CoarseFoodForm\StockManageMent\StockForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CoarseFoodForm\StockManageMent\StockForm.Designer.cs">
+      <DependentUpon>StockForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\DbContextHelper.cs" />
+    <Compile Include="Utils\Job\MainFormJOb.cs" />
+    <Compile Include="Utils\JotMenu.cs" />
+    <Compile Include="Utils\MyKey.cs" />
+    <Compile Include="Utils\QuartzHelper.cs" />
+    <EmbeddedResource Include="CoarseFoodForm\SettIementManagement\SettlementForm.resx">
+      <DependentUpon>SettlementForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CoarseFoodForm\SysSeting\SysSetingForm.resx">
+      <DependentUpon>SysSetingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="CoarseFoodForm\StockManageMent\StockForm.resx">
+      <DependentUpon>StockForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="log4net.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JBaseCommon\JBaseCommon.csproj">
+      <Project>{4bb8d96e-cef9-4547-9dd3-0a426e84ff2e}</Project>
+      <Name>JBaseCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JCommon\JCommon.csproj">
+      <Project>{52f792cb-19b1-42af-964c-1d66292a92e3}</Project>
+      <Name>JCommon</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bo_note.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\employeesummary.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bo_order.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\changeview.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\changeview1.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\粮联网名称.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\9054803.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chartbubble.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\insertbubblemap.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bo_workflowdefinition.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bo_customer.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bo_customer1.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\weightedpies.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\TouchSocket.Core.2.0.0-rc.1\analyzers\dotnet\cs\TouchSocket.Core.SourceGenerator.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bo_note1.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\electronics_photo.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shopping_shoppingcart.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bo_order1.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shading.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bo_category.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bo_invoice.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\workinghours.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\charttype_bubble.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\business_dollarcircled.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bo_workflowdefinition1.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\actions_refresh.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\changeview2.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bo_customer2.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bo_customer3.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\changeview3.svg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
