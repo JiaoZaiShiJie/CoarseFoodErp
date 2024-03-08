@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             this.pic_MdiImage = new DevExpress.XtraEditors.PictureEdit();
             this.bar4 = new DevExpress.XtraBars.Bar();
             this.bar5 = new DevExpress.XtraBars.Bar();
@@ -71,8 +70,8 @@
             this.bar_SysTimer = new DevExpress.XtraBars.BarStaticItem();
             this.barStaticItem3 = new DevExpress.XtraBars.BarStaticItem();
             this.barStaticItem4 = new DevExpress.XtraBars.BarStaticItem();
+            this.btn_Update = new DevExpress.XtraBars.BarButtonItem();
             this.barStaticItem6 = new DevExpress.XtraBars.BarStaticItem();
-            this.barButtonItem9 = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -86,16 +85,10 @@
             this.barStaticItem5 = new DevExpress.XtraBars.BarStaticItem();
             this.barEditItem1 = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemPictureEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit();
-            ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_MdiImage.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // xtraTabbedMdiManager1
-            // 
-            this.xtraTabbedMdiManager1.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InAllTabPagesAndTabControlHeader;
-            this.xtraTabbedMdiManager1.MdiParent = this;
             // 
             // pic_MdiImage
             // 
@@ -180,7 +173,7 @@
             this.barLargeButtonItem19,
             this.barLargeButtonItem20,
             this.barLargeButtonItem21,
-            this.barButtonItem9});
+            this.btn_Update});
             this.barManager1.MainMenu = this.bar2;
             this.barManager1.MaxItemId = 44;
             this.barManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
@@ -460,7 +453,7 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.bar_SysTimer),
             new DevExpress.XtraBars.LinkPersistInfo(this.barStaticItem3),
             new DevExpress.XtraBars.LinkPersistInfo(this.barStaticItem4),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem9),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btn_Update),
             new DevExpress.XtraBars.LinkPersistInfo(this.barStaticItem6)});
             this.bar3.OptionsBar.AllowQuickCustomization = false;
             this.bar3.OptionsBar.DrawDragBorder = false;
@@ -491,21 +484,21 @@
             this.barStaticItem4.Id = 18;
             this.barStaticItem4.Name = "barStaticItem4";
             // 
+            // btn_Update
+            // 
+            this.btn_Update.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.btn_Update.Caption = "检查更新";
+            this.btn_Update.Id = 43;
+            this.btn_Update.ImageOptions.SvgImage = global::CoarseFoodErp.Properties.Resources.changeview3;
+            this.btn_Update.Name = "btn_Update";
+            this.btn_Update.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            // 
             // barStaticItem6
             // 
             this.barStaticItem6.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
             this.barStaticItem6.Caption = "Ver:1.0";
             this.barStaticItem6.Id = 20;
             this.barStaticItem6.Name = "barStaticItem6";
-            // 
-            // barButtonItem9
-            // 
-            this.barButtonItem9.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-            this.barButtonItem9.Caption = "检查更新";
-            this.barButtonItem9.Id = 43;
-            this.barButtonItem9.ImageOptions.SvgImage = global::CoarseFoodErp.Properties.Resources.changeview3;
-            this.barButtonItem9.Name = "barButtonItem9";
-            this.barButtonItem9.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
             // barDockControlTop
             // 
@@ -631,7 +624,6 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "出入库管理系统";
-            ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_MdiImage.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).EndInit();
@@ -641,7 +633,7 @@
         }
 
         #endregion
-        private DevExpress.XtraTabbedMdi.XtraTabbedMdiManager xtraTabbedMdiManager1;
+       // private DevExpress.XtraTabbedMdi.XtraTabbedMdiManager xtraTabbedMdiManager1;
         private DevExpress.XtraEditors.PictureEdit pic_MdiImage;
         private DevExpress.XtraBars.Bar bar5;
         private DevExpress.XtraBars.Bar bar4;
@@ -697,7 +689,7 @@
         private DevExpress.XtraBars.BarLargeButtonItem barLargeButtonItem19;
         private DevExpress.XtraBars.BarLargeButtonItem barLargeButtonItem20;
         private DevExpress.XtraBars.BarLargeButtonItem barLargeButtonItem21;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem9;
+        private DevExpress.XtraBars.BarButtonItem btn_Update;
     }
 }
 

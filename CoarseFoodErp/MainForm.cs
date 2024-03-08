@@ -15,6 +15,8 @@ using JCommon.Jot;
 using DevExpress.XtraBars;
 using JBaseCommon.JBaseForm;
 using JCommon;
+using DevExpress.XtraBars.Customization;
+using CoarseFoodErp.Properties;
 
 namespace CoarseFoodErp
 {
@@ -45,8 +47,27 @@ namespace CoarseFoodErp
         private void RegistEvent()
         {
             InitMenu();
-            this.xtraTabbedMdiManager1.PageAdded += XtraTabbedMdiManager1_PageAdded;
+            // this.xtraTabbedMdiManager1.PageAdded += XtraTabbedMdiManager1_PageAdded;
+            btn_Update.ItemClick += Btn_Update_ItemClick;
         }
+
+        #region 检测更新
+        private void Btn_Update_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            AutoUpdateForm autoUpdateForm = new AutoUpdateForm();
+            autoUpdateForm.IsupDateEvent += (j) =>
+            {
+                if (j == false)
+                {
+                    MessageBox.Show("系统暂无更新", "温馨提示", MessageBoxButtons.OK);
+                    return;
+                }
+            };
+            autoUpdateForm.ShowDialog();
+        }
+        #endregion
+
+
         #endregion
 
         #region 初始化菜单
@@ -143,4 +164,41 @@ namespace CoarseFoodErp
 
 
     }
+
+
+
+
+
+    public class TabbedMdiManager : DevExpress.XtraTabbedMdi.XtraTabbedMdiManager
+    {
+        Image _backImage = null;
+
+        public TabbedMdiManager() : base()
+        {
+        }
+
+        public TabbedMdiManager(IContainer container) : base(container)
+        {
+        }
+
+        public Image BackImage
+        {
+            set { _backImage = value; }
+            get { return _backImage; }
+        }
+
+        protected override void DrawNC(DevExpress.Utils.Drawing.DXPaintEventArgs e)
+        {
+            if (this.Pages.Count > 0 || _backImage == null)
+            {
+                base.DrawNC(e);
+            }
+            else
+            {
+                e.Graphics.DrawImage(_backImage, Bounds);
+            }
+        }
+
+    }
+
 }
