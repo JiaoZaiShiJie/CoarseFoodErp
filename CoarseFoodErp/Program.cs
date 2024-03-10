@@ -10,6 +10,9 @@ using CoarseFoodErp.Utils;
 using DevExpress.XtraEditors;
 using JBaseCommon.JBaseForm;
 using CoarseFoodErp.CoarseFoodForm.SysSeting;
+using DevExpress.Data.ExpressionEditor;
+using System.Net.Http;
+using System.Net;
 namespace CoarseFoodErp
 {
     internal static class Program
@@ -18,7 +21,7 @@ namespace CoarseFoodErp
         /// 应用程序的主入口点。
         /// </summary>
         [STAThread]
-        static void Main()
+        static  void Main()
         {
             ///注入日志
             LogHelper.LoadUdpAppender();
@@ -55,6 +58,9 @@ namespace CoarseFoodErp
             //WindowsFormsSettings.TrackWindowsAppMode = DevExpress.Utils.DefaultBoolean.True;
 
             #endregion 加载dev汉化
+
+          
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());

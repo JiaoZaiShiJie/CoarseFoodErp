@@ -195,6 +195,10 @@
       <Project>{52f792cb-19b1-42af-964c-1d66292a92e3}</Project>
       <Name>JCommon</Name>
     </ProjectReference>
+    <ProjectReference Include="C:\Users\Administrator.DESKTOP-KTHCAT9\Desktop\Dev23.1版本更新界面AutoUpdater.NET-\AutoUpdater.NET\AutoUpdater.NET.csproj">
+      <Project>{fb9e7e6b-b19f-4f37-a708-2996190cef13}</Project>
+      <Name>AutoUpdater.NET</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\bo_note.svg" />

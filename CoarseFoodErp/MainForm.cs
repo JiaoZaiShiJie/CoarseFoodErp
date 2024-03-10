@@ -17,6 +17,10 @@ using JBaseCommon.JBaseForm;
 using JCommon;
 using DevExpress.XtraBars.Customization;
 using CoarseFoodErp.Properties;
+using AutoUpdaterDotNET;
+using DevExpress.Data.ExpressionEditor;
+using System.Net.Http;
+using System.Net;
 
 namespace CoarseFoodErp
 {
@@ -55,14 +59,6 @@ namespace CoarseFoodErp
         private void Btn_Update_ItemClick(object sender, ItemClickEventArgs e)
         {
             AutoUpdateForm autoUpdateForm = new AutoUpdateForm();
-            autoUpdateForm.IsupDateEvent += (j) =>
-            {
-                if (j == false)
-                {
-                    MessageBox.Show("系统暂无更新", "温馨提示", MessageBoxButtons.OK);
-                    return;
-                }
-            };
             autoUpdateForm.ShowDialog();
         }
         #endregion
