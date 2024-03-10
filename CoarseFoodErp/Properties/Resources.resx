@@ -118,11 +118,17 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="changeview3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\changeview3.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v23.1, Version=23.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
   <data name="bo_invoice" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bo_invoice.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v23.1, Version=23.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="changeview2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\changeview2.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v23.1, Version=23.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  <data name="bo_security_permission" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bo_security_permission.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v23.1, Version=23.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="insertbubblemap" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\insertbubblemap.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v23.1, Version=23.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="shopping_shoppingcart" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\shopping_shoppingcart.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v23.1, Version=23.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
@@ -141,6 +147,9 @@
   </data>
   <data name="charttype_bubble" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\charttype_bubble.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v23.1, Version=23.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="changeview2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\changeview2.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v23.1, Version=23.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="bo_note1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bo_note1.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v23.1, Version=23.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
@@ -184,11 +193,11 @@
   <data name="employeesummary" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\employeesummary.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v23.1, Version=23.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
+  <data name="bo_employee" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bo_employee.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v23.1, Version=23.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
   <data name="bo_customer2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bo_customer2.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v23.1, Version=23.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="insertbubblemap" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\insertbubblemap.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v23.1, Version=23.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="weightedpies" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\weightedpies.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v23.1, Version=23.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
@@ -202,7 +211,7 @@
   <data name="chartbubble" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\chartbubble.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v23.1, Version=23.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="changeview3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\changeview3.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v23.1, Version=23.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  <data name="reset" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\reset.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v23.1, Version=23.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
 </root>

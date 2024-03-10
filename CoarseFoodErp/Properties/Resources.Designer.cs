@@ -133,6 +133,16 @@ namespace CoarseFoodErp.Properties {
         /// <summary>
         ///   查找 DevExpress.Utils.Svg.SvgImage 类型的本地化资源。
         /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage bo_employee {
+            get {
+                object obj = ResourceManager.GetObject("bo_employee", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 DevExpress.Utils.Svg.SvgImage 类型的本地化资源。
+        /// </summary>
         internal static DevExpress.Utils.Svg.SvgImage bo_invoice {
             get {
                 object obj = ResourceManager.GetObject("bo_invoice", resourceCulture);
@@ -176,6 +186,16 @@ namespace CoarseFoodErp.Properties {
         internal static DevExpress.Utils.Svg.SvgImage bo_order1 {
             get {
                 object obj = ResourceManager.GetObject("bo_order1", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 DevExpress.Utils.Svg.SvgImage 类型的本地化资源。
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage bo_security_permission {
+            get {
+                object obj = ResourceManager.GetObject("bo_security_permission", resourceCulture);
                 return ((DevExpress.Utils.Svg.SvgImage)(obj));
             }
         }
@@ -296,6 +316,16 @@ namespace CoarseFoodErp.Properties {
         internal static DevExpress.Utils.Svg.SvgImage insertbubblemap {
             get {
                 object obj = ResourceManager.GetObject("insertbubblemap", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 DevExpress.Utils.Svg.SvgImage 类型的本地化资源。
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage reset {
+            get {
+                object obj = ResourceManager.GetObject("reset", resourceCulture);
                 return ((DevExpress.Utils.Svg.SvgImage)(obj));
             }
         }

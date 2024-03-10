@@ -21,6 +21,8 @@ using AutoUpdaterDotNET;
 using DevExpress.Data.ExpressionEditor;
 using System.Net.Http;
 using System.Net;
+using System.Diagnostics;
+using System.Reflection;
 
 namespace CoarseFoodErp
 {
@@ -42,6 +44,9 @@ namespace CoarseFoodErp
             JotConfigService.Tracker.Track(this);
             await QuartzHelper.CreateScheduler();
             QuartzHelper.AddJob<MainFormJOb>("MainForm界面定时", "系统时间", "系统时间定时", "0/1 * * * * ? *", "MainForm", this);
+            // 获取程序集的版本信息
+            Version version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
+            bar_Version.Caption = $"Ver:{version.Major}.{version.Minor}.{version.Build}.{version.Revision}";
             RegistEvent();
         }
 

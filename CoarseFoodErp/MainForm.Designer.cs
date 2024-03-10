@@ -41,6 +41,8 @@
             this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem8 = new DevExpress.XtraBars.BarButtonItem();
+            this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
+            this.barLargeButtonItem22 = new DevExpress.XtraBars.BarLargeButtonItem();
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
             this.barLargeButtonItem7 = new DevExpress.XtraBars.BarLargeButtonItem();
@@ -71,7 +73,7 @@
             this.barStaticItem3 = new DevExpress.XtraBars.BarStaticItem();
             this.barStaticItem4 = new DevExpress.XtraBars.BarStaticItem();
             this.btn_Update = new DevExpress.XtraBars.BarButtonItem();
-            this.barStaticItem6 = new DevExpress.XtraBars.BarStaticItem();
+            this.bar_Version = new DevExpress.XtraBars.BarStaticItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -85,8 +87,11 @@
             this.barStaticItem5 = new DevExpress.XtraBars.BarStaticItem();
             this.barEditItem1 = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemPictureEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit();
+            this.bar_LogOut = new DevExpress.XtraBars.BarButtonItem();
+            this.bar_UpdatePwd = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.pic_MdiImage.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -150,7 +155,7 @@
             this.barStaticItem3,
             this.barStaticItem4,
             this.barStaticItem5,
-            this.barStaticItem6,
+            this.bar_Version,
             this.barEditItem1,
             this.barButtonItem8,
             this.barSubItem1,
@@ -173,9 +178,12 @@
             this.barLargeButtonItem19,
             this.barLargeButtonItem20,
             this.barLargeButtonItem21,
-            this.btn_Update});
+            this.btn_Update,
+            this.barLargeButtonItem22,
+            this.bar_LogOut,
+            this.bar_UpdatePwd});
             this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 44;
+            this.barManager1.MaxItemId = 47;
             this.barManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemPictureEdit1});
             this.barManager1.StatusBar = this.bar3;
@@ -257,13 +265,35 @@
             // 
             // barButtonItem8
             // 
+            this.barButtonItem8.ActAsDropDown = true;
             this.barButtonItem8.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.barButtonItem8.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
             this.barButtonItem8.Caption = "蕉仔";
+            this.barButtonItem8.DropDownControl = this.popupMenu1;
             this.barButtonItem8.Id = 22;
             this.barButtonItem8.ImageOptions.SvgImage = global::CoarseFoodErp.Properties.Resources.bo_customer3;
             this.barButtonItem8.ImageOptions.SvgImageSize = new System.Drawing.Size(32, 32);
             this.barButtonItem8.Name = "barButtonItem8";
             this.barButtonItem8.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionInMenu;
+            // 
+            // popupMenu1
+            // 
+            this.popupMenu1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.bar_UpdatePwd),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bar_LogOut)});
+            this.popupMenu1.Manager = this.barManager1;
+            this.popupMenu1.Name = "popupMenu1";
+            // 
+            // barLargeButtonItem22
+            // 
+            this.barLargeButtonItem22.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.barLargeButtonItem22.Caption = "barLargeButtonItem22";
+            this.barLargeButtonItem22.CloseRadialMenuOnItemClick = true;
+            this.barLargeButtonItem22.DropDownControl = this.popupMenu1;
+            this.barLargeButtonItem22.Id = 44;
+            this.barLargeButtonItem22.ImageOptions.SvgImage = global::CoarseFoodErp.Properties.Resources.bo_employee;
+            this.barLargeButtonItem22.Name = "barLargeButtonItem22";
+            this.barLargeButtonItem22.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionInMenu;
             // 
             // bar2
             // 
@@ -454,7 +484,7 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.barStaticItem3),
             new DevExpress.XtraBars.LinkPersistInfo(this.barStaticItem4),
             new DevExpress.XtraBars.LinkPersistInfo(this.btn_Update),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barStaticItem6)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.bar_Version)});
             this.bar3.OptionsBar.AllowQuickCustomization = false;
             this.bar3.OptionsBar.DrawDragBorder = false;
             this.bar3.OptionsBar.UseWholeRow = true;
@@ -493,12 +523,12 @@
             this.btn_Update.Name = "btn_Update";
             this.btn_Update.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
-            // barStaticItem6
+            // bar_Version
             // 
-            this.barStaticItem6.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-            this.barStaticItem6.Caption = "Ver:1.0";
-            this.barStaticItem6.Id = 20;
-            this.barStaticItem6.Name = "barStaticItem6";
+            this.bar_Version.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.bar_Version.Caption = "Ver:1.0";
+            this.bar_Version.Id = 20;
+            this.bar_Version.Name = "bar_Version";
             // 
             // barDockControlTop
             // 
@@ -607,6 +637,20 @@
             // 
             this.repositoryItemPictureEdit1.Name = "repositoryItemPictureEdit1";
             // 
+            // bar_LogOut
+            // 
+            this.bar_LogOut.Caption = "退出(&LogOut)";
+            this.bar_LogOut.Id = 45;
+            this.bar_LogOut.ImageOptions.SvgImage = global::CoarseFoodErp.Properties.Resources.reset;
+            this.bar_LogOut.Name = "bar_LogOut";
+            // 
+            // bar_UpdatePwd
+            // 
+            this.bar_UpdatePwd.Caption = "修改密码(&A)";
+            this.bar_UpdatePwd.Id = 46;
+            this.bar_UpdatePwd.ImageOptions.SvgImage = global::CoarseFoodErp.Properties.Resources.bo_security_permission;
+            this.bar_UpdatePwd.Name = "bar_UpdatePwd";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -626,6 +670,7 @@
             this.Text = "出入库管理系统";
             ((System.ComponentModel.ISupportInitialize)(this.pic_MdiImage.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -664,7 +709,7 @@
         private DevExpress.XtraBars.BarStaticItem barStaticItem3;
         private DevExpress.XtraBars.BarStaticItem barStaticItem4;
         private DevExpress.XtraBars.BarStaticItem barStaticItem5;
-        private DevExpress.XtraBars.BarStaticItem barStaticItem6;
+        private DevExpress.XtraBars.BarStaticItem bar_Version;
         private DevExpress.XtraBars.BarButtonItem barButtonItem7;
         private DevExpress.XtraBars.BarEditItem barEditItem1;
         private DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit repositoryItemPictureEdit1;
@@ -690,6 +735,10 @@
         private DevExpress.XtraBars.BarLargeButtonItem barLargeButtonItem20;
         private DevExpress.XtraBars.BarLargeButtonItem barLargeButtonItem21;
         private DevExpress.XtraBars.BarButtonItem btn_Update;
+        private DevExpress.XtraBars.PopupMenu popupMenu1;
+        private DevExpress.XtraBars.BarLargeButtonItem barLargeButtonItem22;
+        private DevExpress.XtraBars.BarButtonItem bar_UpdatePwd;
+        private DevExpress.XtraBars.BarButtonItem bar_LogOut;
     }
 }
 
