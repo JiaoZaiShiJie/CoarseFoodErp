@@ -214,6 +214,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="差分更新.bat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -335,4 +338,7 @@
     <Analyzer Include="..\packages\TouchSocket.Core.2.0.0\analyzers\dotnet\cs\TouchSocket.Core.SourceGenerator.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>call "C:\Users\Administrator.DESKTOP-KTHCAT9\Desktop\差分更新.bat" $(ProjectName) $(ProjectDir)</PostBuildEvent>
+  </PropertyGroup>
 </Project>
