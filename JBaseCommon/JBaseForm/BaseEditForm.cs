@@ -16,11 +16,13 @@ namespace JBaseCommon.JBaseForm
     public partial class BaseEditForm : BaseForm
     {
         #region 字段
+
+        #region 验证规则
         /// <summary>
         /// 必填项规则
         /// </summary>
         private ConditionValidationRule notEmptyValidationRule = new ConditionValidationRule();
-       
+
 
         /// <summary>
         /// 最小值规则
@@ -42,6 +44,45 @@ namespace JBaseCommon.JBaseForm
         /// 与其他控件比较
         /// </summary>
         private CompareAgainstControlValidationRule compareAgainstControl = new CompareAgainstControlValidationRule();
+        #endregion
+
+        #region 预加载数据
+
+        private Dictionary<string, object> preLoadData;
+
+        /// <summary>
+        /// 预加载数据
+        /// </summary>
+        [Browsable(false)]
+        public Dictionary<string, object> PreLoadData
+        {
+            get
+            {
+                return this.preLoadData;
+            }
+
+            set
+            {
+                this.preLoadData = value;
+            }
+        }
+
+        #endregion 预加载数据
+
+        #region 选中Data
+
+        public DataRow Data { get; set; }
+
+        #endregion 选中Data
+
+        #region 表格全部数据DataTable
+        public DataTable GetDataTable { get; set; }
+        #endregion
+
+        #region 是否编辑模式
+        public bool IsEdit { get; set; }
+        #endregion
+       
         #endregion
         #region 构造函数
         public BaseEditForm()

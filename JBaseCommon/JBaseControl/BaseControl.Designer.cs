@@ -294,7 +294,7 @@
             // cms_Tools
             // 
             this.cms_Tools.Name = "cms_Tools";
-            this.cms_Tools.Size = new System.Drawing.Size(181, 26);
+            this.cms_Tools.Size = new System.Drawing.Size(61, 4);
             // 
             // BaseControl
             // 
