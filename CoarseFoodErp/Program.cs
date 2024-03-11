@@ -55,7 +55,7 @@ namespace CoarseFoodErp
             #region 加载dev汉化
 
             System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("zh-CN");
-            //WindowsFormsSettings.TrackWindowsAppMode = DevExpress.Utils.DefaultBoolean.True;
+            WindowsFormsSettings.TrackWindowsAppMode = DevExpress.Utils.DefaultBoolean.True;
 
             #endregion 加载dev汉化
 

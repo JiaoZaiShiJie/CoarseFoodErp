@@ -69,12 +69,16 @@
             this.sb_Save.TabIndex = 0;
             this.sb_Save.Text = "保存(&S)";
             // 
+            // dxValidationProvider1
+            // 
+            this.dxValidationProvider1.ValidationMode = DevExpress.XtraEditors.DXErrorProvider.ValidationMode.Auto;
+            // 
             // BaseEditForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(618, 374);
             this.Controls.Add(this.panelControl1);
+            this.IconOptions.SvgImage = global::JBaseCommon.Properties.Resources.bo_notifications;
             this.IsModalForm = true;
             this.MaximizeBox = false;
             this.Name = "BaseEditForm";

@@ -2,27 +2,28 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CoarseFoodErp.Utils.Job;
+using AutoUpdaterDotNET;
+using CoarseFoodErp.CoarseFoodForm.UpdatePwd;
+using CoarseFoodErp.Properties;
 using CoarseFoodErp.Utils;
+using CoarseFoodErp.Utils.Job;
+using DevExpress.Data.ExpressionEditor;
+using DevExpress.XtraBars;
+using DevExpress.XtraBars.Customization;
 using DevExpress.XtraEditors;
 using JBaseCommon;
-using JCommon.Jot;
-using DevExpress.XtraBars;
 using JBaseCommon.JBaseForm;
 using JCommon;
-using DevExpress.XtraBars.Customization;
-using CoarseFoodErp.Properties;
-using AutoUpdaterDotNET;
-using DevExpress.Data.ExpressionEditor;
-using System.Net.Http;
-using System.Net;
-using System.Diagnostics;
-using System.Reflection;
+using JCommon.Jot;
 
 namespace CoarseFoodErp
 {
@@ -58,12 +59,25 @@ namespace CoarseFoodErp
             InitMenu();
             // this.xtraTabbedMdiManager1.PageAdded += XtraTabbedMdiManager1_PageAdded;
             btn_Update.ItemClick += Btn_Update_ItemClick;
+            bar_LogOut.ItemClick += Bar_LogOut_ItemClick;
+        
         }
+        #region 退出系统
+        private void Bar_LogOut_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            DialogResult dialogResult = XtraMessageBox.Show("是否确认退出系统?", "温馨提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            if (dialogResult == DialogResult.OK)
+            {
+                Close();
+            }
+        }
+        #endregion
 
         #region 检测更新
         private void Btn_Update_ItemClick(object sender, ItemClickEventArgs e)
         {
             AutoUpdateForm autoUpdateForm = new AutoUpdateForm();
+            autoUpdateForm.Owner = this;
             autoUpdateForm.ShowDialog();
         }
         #endregion
@@ -78,7 +92,6 @@ namespace CoarseFoodErp
             {
                 if (item is BarLargeButtonItem || item is BarButtonItem || item is SkinDropDownButtonItem)
                 {
-                    string tag = item.Tag == null ? string.Empty : item.Tag.ToString();
                     item.ItemClick += Item_ItemClick;
                 }
             }
@@ -88,10 +101,10 @@ namespace CoarseFoodErp
             ItemClick(e);
         }
         #region ItemClick方法
-        private  void ItemClick(ItemClickEventArgs e)
+        private void ItemClick(ItemClickEventArgs e)
         {
             var menuItem = e.Item is BarLargeButtonItem ? (BarButtonItem)e.Item : (BarButtonItem)e.Item;
-            if (menuItem.Tag==null)
+            if (menuItem.Tag == null)
             {
                 return;
             }
@@ -128,9 +141,9 @@ namespace CoarseFoodErp
                     f.MdiParent = this;
                     f.FormClosed += (s, e1) =>
                     {
-                        if (this.MdiChildren.Length == 1)
+                        if (MdiChildren.Length == 1)
                         {
-                            this.pic_MdiImage.Visible = true;
+                            pic_MdiImage.Visible = true;
                         }
                     };
                     f.Show();
@@ -159,21 +172,11 @@ namespace CoarseFoodErp
         }
 
         #endregion 刷新定时方法
-
-
-
-
-
     }
-
-
-
 
 
     public class TabbedMdiManager : DevExpress.XtraTabbedMdi.XtraTabbedMdiManager
     {
-        Image _backImage = null;
-
         public TabbedMdiManager() : base()
         {
         }
@@ -182,21 +185,17 @@ namespace CoarseFoodErp
         {
         }
 
-        public Image BackImage
-        {
-            set { _backImage = value; }
-            get { return _backImage; }
-        }
+        public Image BackImage { set; get; } = null;
 
         protected override void DrawNC(DevExpress.Utils.Drawing.DXPaintEventArgs e)
         {
-            if (this.Pages.Count > 0 || _backImage == null)
+            if (Pages.Count > 0 || BackImage == null)
             {
                 base.DrawNC(e);
             }
             else
             {
-                e.Graphics.DrawImage(_backImage, Bounds);
+                e.Graphics.DrawImage(BackImage, Bounds);
             }
         }
 

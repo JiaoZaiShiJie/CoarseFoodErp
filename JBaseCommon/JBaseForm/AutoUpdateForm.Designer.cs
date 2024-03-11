@@ -33,11 +33,11 @@
             this.sb_Cancel = new DevExpress.XtraEditors.SimpleButton();
             this.sb_Update = new DevExpress.XtraEditors.SimpleButton();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            this.lb_UpDateVer = new DevExpress.XtraEditors.LabelControl();
+            this.lb_CurrentVer = new DevExpress.XtraEditors.LabelControl();
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
-            this.lb_CurrentVer = new DevExpress.XtraEditors.LabelControl();
-            this.lb_UpDateVer = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
@@ -87,6 +87,32 @@
             this.panelControl3.Size = new System.Drawing.Size(662, 173);
             this.panelControl3.TabIndex = 4;
             // 
+            // lb_UpDateVer
+            // 
+            this.lb_UpDateVer.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.lb_UpDateVer.Appearance.Font = new System.Drawing.Font("华文彩云", 15F);
+            this.lb_UpDateVer.Appearance.Options.UseBackColor = true;
+            this.lb_UpDateVer.Appearance.Options.UseFont = true;
+            this.lb_UpDateVer.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lb_UpDateVer.Location = new System.Drawing.Point(449, 61);
+            this.lb_UpDateVer.Name = "lb_UpDateVer";
+            this.lb_UpDateVer.Size = new System.Drawing.Size(210, 52);
+            this.lb_UpDateVer.TabIndex = 8;
+            this.lb_UpDateVer.Text = "当前版本号:";
+            // 
+            // lb_CurrentVer
+            // 
+            this.lb_CurrentVer.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.lb_CurrentVer.Appearance.Font = new System.Drawing.Font("华文彩云", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lb_CurrentVer.Appearance.Options.UseBackColor = true;
+            this.lb_CurrentVer.Appearance.Options.UseFont = true;
+            this.lb_CurrentVer.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lb_CurrentVer.Location = new System.Drawing.Point(4, 61);
+            this.lb_CurrentVer.Name = "lb_CurrentVer";
+            this.lb_CurrentVer.Size = new System.Drawing.Size(197, 52);
+            this.lb_CurrentVer.TabIndex = 7;
+            this.lb_CurrentVer.Text = "当前版本号:";
+            // 
             // pictureEdit1
             // 
             this.pictureEdit1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -123,32 +149,6 @@
             this.memoEdit1.Size = new System.Drawing.Size(658, 154);
             this.memoEdit1.TabIndex = 2;
             // 
-            // lb_CurrentVer
-            // 
-            this.lb_CurrentVer.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.lb_CurrentVer.Appearance.Font = new System.Drawing.Font("华文彩云", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lb_CurrentVer.Appearance.Options.UseBackColor = true;
-            this.lb_CurrentVer.Appearance.Options.UseFont = true;
-            this.lb_CurrentVer.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lb_CurrentVer.Location = new System.Drawing.Point(4, 61);
-            this.lb_CurrentVer.Name = "lb_CurrentVer";
-            this.lb_CurrentVer.Size = new System.Drawing.Size(197, 52);
-            this.lb_CurrentVer.TabIndex = 7;
-            this.lb_CurrentVer.Text = "当前版本号:";
-            // 
-            // lb_UpDateVer
-            // 
-            this.lb_UpDateVer.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.lb_UpDateVer.Appearance.Font = new System.Drawing.Font("华文彩云", 15F);
-            this.lb_UpDateVer.Appearance.Options.UseBackColor = true;
-            this.lb_UpDateVer.Appearance.Options.UseFont = true;
-            this.lb_UpDateVer.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lb_UpDateVer.Location = new System.Drawing.Point(449, 61);
-            this.lb_UpDateVer.Name = "lb_UpDateVer";
-            this.lb_UpDateVer.Size = new System.Drawing.Size(210, 52);
-            this.lb_UpDateVer.TabIndex = 8;
-            this.lb_UpDateVer.Text = "当前版本号:";
-            // 
             // AutoUpdateForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -162,7 +162,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AutoUpdateForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "自动更新";
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);

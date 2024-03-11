@@ -73,6 +73,16 @@ namespace JBaseCommon.Properties {
         /// <summary>
         ///   查找 DevExpress.Utils.Svg.SvgImage 类型的本地化资源。
         /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage bo_notifications {
+            get {
+                object obj = ResourceManager.GetObject("bo_notifications", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 DevExpress.Utils.Svg.SvgImage 类型的本地化资源。
+        /// </summary>
         internal static DevExpress.Utils.Svg.SvgImage charttype_spline3d {
             get {
                 object obj = ResourceManager.GetObject("charttype_spline3d", resourceCulture);

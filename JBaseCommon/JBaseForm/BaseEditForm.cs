@@ -8,23 +8,70 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.DXErrorProvider;
+using JCommon;
 
 namespace JBaseCommon.JBaseForm
 {
     public partial class BaseEditForm : BaseForm
     {
+        #region 字段
+        /// <summary>
+        /// 必填项规则
+        /// </summary>
+        private ConditionValidationRule notEmptyValidationRule = new ConditionValidationRule();
+       
 
+        /// <summary>
+        /// 最小值规则
+        /// </summary>
+        private ConditionValidationRule minValueValidationRule = new ConditionValidationRule();
+
+        /// <summary>
+        /// 默认启用
+        /// </summary>
+        private ConditionValidationRule mile = new ConditionValidationRule();
+
+
+        /// <summary>
+        /// 数值范围
+        /// </summary>
+        private ConditionValidationRule rangeValidationRule = new ConditionValidationRule();
+
+        /// <summary>
+        /// 与其他控件比较
+        /// </summary>
+        private CompareAgainstControlValidationRule compareAgainstControl = new CompareAgainstControlValidationRule();
+        #endregion
         #region 构造函数
         public BaseEditForm()
         {
             InitializeComponent();
+            RegistEvent();
         }
         #endregion
 
         protected override void OnLoad(EventArgs e)
         {
-            base.OnLoad(e);
-            RegistEvent();
+            if (this.DesignMode)
+            {
+                return;
+            }
+            try
+            {
+                InitValidationRules();
+                if (this.Visible)
+                {
+                    //this.MinimizeBox = false;
+                    //this.MaximizeBox = false;
+                    this.SetValidationRule();
+                }
+                base.OnLoad(e);
+            }
+            catch (Exception ex)
+            {
+                LogHelper.WriteError(this.GetType(), ex);
+            }
         }
 
 
@@ -72,6 +119,90 @@ namespace JBaseCommon.JBaseForm
             this.Close();
         }
         #endregion
+        #endregion
+
+        #region 控件设置验证规则
+
+        private void InitValidationRules()
+        {
+            // 必填项
+            this.notEmptyValidationRule.ConditionOperator = ConditionOperator.IsNotBlank;
+            this.notEmptyValidationRule.ErrorText = "此项为必填项";
+            this.notEmptyValidationRule.ErrorType = ErrorType.Information;
+
+            this.minValueValidationRule.ConditionOperator = ConditionOperator.GreaterOrEqual;
+            this.minValueValidationRule.Value1 = 0;
+            this.minValueValidationRule.ErrorText = "此项必须大于等于0";
+
+            ////// 数值范围
+            rangeValidationRule.ConditionOperator = ConditionOperator.Between;
+            rangeValidationRule.Value1 = 1;
+            rangeValidationRule.Value2 = 100;
+            rangeValidationRule.ErrorType = ErrorType.Warning;
+            rangeValidationRule.ErrorText = $"请输入{rangeValidationRule.Value1}到{rangeValidationRule.Value2}之间的数值";
+
+            ////// 包含某字符
+            ////ConditionValidationRule containsValidationRule = new ConditionValidationRule();
+            ////containsValidationRule.ConditionOperator = ConditionOperator.Contains;
+            ////containsValidationRule.Value1 = '@';
+            ////containsValidationRule.ErrorText = "Please enter a valid email";
+            ////containsValidationRule.ErrorType = ErrorType.Warning;
+            ////// </containsTextEdit>
+
+
+        }
+
+        #region 与其他控件比较
+        public void SetControlValidationRule(Control control, Control control1)
+        {
+            // 与其他控件对比
+            compareAgainstControl = new CompareAgainstControlValidationRule();
+            compareAgainstControl.Control = control;
+            compareAgainstControl.CompareControlOperator = CompareControlOperator.Equals;
+            compareAgainstControl.ErrorText = "必须重复你所填的项目";
+            compareAgainstControl.ErrorType = ErrorType.Warning;
+            compareAgainstControl.CaseSensitive = false;
+            SetValidationRule(control1, compareAgainstControl);
+        }
+        #endregion
+
+        #region 设置必填项目
+        public void SetNotEmptyValidationRule(Control control)
+        {
+            this.SetValidationRule(control, this.notEmptyValidationRule);
+        }
+        #endregion
+
+        #region 设置最小值
+        public void SetMinValueValidationRule(Control control)
+        {
+            notEmptyValidationRule.ConditionOperator = ConditionOperator.IsNotBlank;
+            this.SetValidationRule(control, this.minValueValidationRule);
+        }
+        #endregion
+
+        #region 设置数值范围
+        public void SetMinValueBetweenMaxValidationRule(Control control)
+        {
+            rangeValidationRule.ConditionOperator = ConditionOperator.IsNotBlank;
+            this.SetValidationRule(control, this.rangeValidationRule);
+        }
+        #endregion
+
+        #region 控件设置验证规则
+        public void SetValidationRule(Control control, ValidationRule rule)
+        {
+            this.dxValidationProvider1.SetIconAlignment(control, ErrorIconAlignment.MiddleRight);
+            this.dxValidationProvider1.SetValidationRule(control, rule);
+        }
+        #endregion
+
+        #endregion
+
+        #region 设置控件验证规则
+        protected virtual void SetValidationRule()
+        {
+        }
         #endregion
 
 

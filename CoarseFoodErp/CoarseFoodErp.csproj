@@ -57,6 +57,7 @@
     <Reference Include="DevExpress.Utils.v23.1, Version=23.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraBars.v23.1, Version=23.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v23.1, Version=23.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v23.1, Version=23.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="Jot, Version=2.1.17.0, Culture=neutral, PublicKeyToken=6b498f69c5f88322, processorArchitecture=MSIL">
       <HintPath>..\packages\Jot.2.1.17\lib\netstandard2.0\Jot.dll</HintPath>
     </Reference>
@@ -76,8 +77,8 @@
     <Reference Include="Quartz, Version=3.8.1.0, Culture=neutral, PublicKeyToken=f6b8c98a402cc8a4, processorArchitecture=MSIL">
       <HintPath>..\packages\Quartz.3.8.1\lib\net472\Quartz.dll</HintPath>
     </Reference>
-    <Reference Include="SqlSugar, Version=5.1.4.143, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\SqlSugar.5.1.4.143\lib\SqlSugar.dll</HintPath>
+    <Reference Include="SqlSugar, Version=5.1.4.145, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SqlSugar.5.1.4.145\lib\SqlSugar.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -86,8 +87,8 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Diagnostics.DiagnosticSource, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.8.0.0\lib\net462\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.9.0.0-preview.1.24080.9\lib\net462\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
     <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
@@ -113,10 +114,10 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="TouchSocket, Version=2.0.0.0, Culture=neutral, PublicKeyToken=5f39d7da98dac6a9, processorArchitecture=MSIL">
-      <HintPath>..\packages\TouchSocket.2.0.0-rc.1\lib\net472\TouchSocket.dll</HintPath>
+      <HintPath>..\packages\TouchSocket.2.0.0\lib\net472\TouchSocket.dll</HintPath>
     </Reference>
     <Reference Include="TouchSocket.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=d6c415a2f58eda72, processorArchitecture=MSIL">
-      <HintPath>..\packages\TouchSocket.Core.2.0.0-rc.1\lib\net472\TouchSocket.Core.dll</HintPath>
+      <HintPath>..\packages\TouchSocket.Core.2.0.0\lib\net472\TouchSocket.Core.dll</HintPath>
     </Reference>
     <Reference Include="UIAutomationClient" />
     <Reference Include="WindowsBase" />
@@ -140,6 +141,12 @@
     <Compile Include="CoarseFoodForm\SysSeting\SysSetingForm.Designer.cs">
       <DependentUpon>SysSetingForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CoarseFoodForm\UpdatePwd\UpdatePwdForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CoarseFoodForm\UpdatePwd\UpdatePwdForm.Designer.cs">
+      <DependentUpon>UpdatePwdForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +161,12 @@
     <Compile Include="CoarseFoodForm\StockManageMent\StockForm.Designer.cs">
       <DependentUpon>StockForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="testForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="testForm.Designer.cs">
+      <DependentUpon>testForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utils\DbContextHelper.cs" />
     <Compile Include="Utils\Job\MainFormJOb.cs" />
     <Compile Include="Utils\JotMenu.cs" />
@@ -164,6 +177,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CoarseFoodForm\SysSeting\SysSetingForm.resx">
       <DependentUpon>SysSetingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CoarseFoodForm\UpdatePwd\UpdatePwdForm.resx">
+      <DependentUpon>UpdatePwdForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -181,6 +197,9 @@
     </Compile>
     <EmbeddedResource Include="CoarseFoodForm\StockManageMent\StockForm.resx">
       <DependentUpon>StockForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="testForm.resx">
+      <DependentUpon>testForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="log4net.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -253,9 +272,6 @@
     <None Include="Resources\weightedpies.svg" />
   </ItemGroup>
   <ItemGroup>
-    <Analyzer Include="..\packages\TouchSocket.Core.2.0.0-rc.1\analyzers\dotnet\cs\TouchSocket.Core.SourceGenerator.dll" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\bo_note1.svg" />
   </ItemGroup>
   <ItemGroup>
@@ -314,6 +330,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="9054803.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\TouchSocket.Core.2.0.0\analyzers\dotnet\cs\TouchSocket.Core.SourceGenerator.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -42,7 +42,8 @@
             this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem8 = new DevExpress.XtraBars.BarButtonItem();
             this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
-            this.barLargeButtonItem22 = new DevExpress.XtraBars.BarLargeButtonItem();
+            this.bar_UpdatePwd = new DevExpress.XtraBars.BarButtonItem();
+            this.bar_LogOut = new DevExpress.XtraBars.BarButtonItem();
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
             this.barLargeButtonItem7 = new DevExpress.XtraBars.BarLargeButtonItem();
@@ -87,8 +88,7 @@
             this.barStaticItem5 = new DevExpress.XtraBars.BarStaticItem();
             this.barEditItem1 = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemPictureEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit();
-            this.bar_LogOut = new DevExpress.XtraBars.BarButtonItem();
-            this.bar_UpdatePwd = new DevExpress.XtraBars.BarButtonItem();
+            this.barLargeButtonItem22 = new DevExpress.XtraBars.BarLargeButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.pic_MdiImage.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
@@ -284,16 +284,20 @@
             this.popupMenu1.Manager = this.barManager1;
             this.popupMenu1.Name = "popupMenu1";
             // 
-            // barLargeButtonItem22
+            // bar_UpdatePwd
             // 
-            this.barLargeButtonItem22.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-            this.barLargeButtonItem22.Caption = "barLargeButtonItem22";
-            this.barLargeButtonItem22.CloseRadialMenuOnItemClick = true;
-            this.barLargeButtonItem22.DropDownControl = this.popupMenu1;
-            this.barLargeButtonItem22.Id = 44;
-            this.barLargeButtonItem22.ImageOptions.SvgImage = global::CoarseFoodErp.Properties.Resources.bo_employee;
-            this.barLargeButtonItem22.Name = "barLargeButtonItem22";
-            this.barLargeButtonItem22.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionInMenu;
+            this.bar_UpdatePwd.Caption = "修改密码(&A)";
+            this.bar_UpdatePwd.Id = 46;
+            this.bar_UpdatePwd.ImageOptions.SvgImage = global::CoarseFoodErp.Properties.Resources.bo_security_permission;
+            this.bar_UpdatePwd.Name = "bar_UpdatePwd";
+            this.bar_UpdatePwd.Tag = "CoarseFoodErp.CoarseFoodForm.UpdatePwd.UpdatePwdForm";
+            // 
+            // bar_LogOut
+            // 
+            this.bar_LogOut.Caption = "退出(&LogOut)";
+            this.bar_LogOut.Id = 45;
+            this.bar_LogOut.ImageOptions.SvgImage = global::CoarseFoodErp.Properties.Resources.reset;
+            this.bar_LogOut.Name = "bar_LogOut";
             // 
             // bar2
             // 
@@ -637,19 +641,16 @@
             // 
             this.repositoryItemPictureEdit1.Name = "repositoryItemPictureEdit1";
             // 
-            // bar_LogOut
+            // barLargeButtonItem22
             // 
-            this.bar_LogOut.Caption = "退出(&LogOut)";
-            this.bar_LogOut.Id = 45;
-            this.bar_LogOut.ImageOptions.SvgImage = global::CoarseFoodErp.Properties.Resources.reset;
-            this.bar_LogOut.Name = "bar_LogOut";
-            // 
-            // bar_UpdatePwd
-            // 
-            this.bar_UpdatePwd.Caption = "修改密码(&A)";
-            this.bar_UpdatePwd.Id = 46;
-            this.bar_UpdatePwd.ImageOptions.SvgImage = global::CoarseFoodErp.Properties.Resources.bo_security_permission;
-            this.bar_UpdatePwd.Name = "bar_UpdatePwd";
+            this.barLargeButtonItem22.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.barLargeButtonItem22.Caption = "barLargeButtonItem22";
+            this.barLargeButtonItem22.CloseRadialMenuOnItemClick = true;
+            this.barLargeButtonItem22.DropDownControl = this.popupMenu1;
+            this.barLargeButtonItem22.Id = 44;
+            this.barLargeButtonItem22.ImageOptions.SvgImage = global::CoarseFoodErp.Properties.Resources.bo_employee;
+            this.barLargeButtonItem22.Name = "barLargeButtonItem22";
+            this.barLargeButtonItem22.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionInMenu;
             // 
             // MainForm
             // 
