@@ -32,8 +32,12 @@
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.te_VersionUrl = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
+            this.xtraTabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.te_VersionUrl.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // sb_Cancel
@@ -60,6 +64,8 @@
             // 
             // xtraTabPage1
             // 
+            this.xtraTabPage1.Controls.Add(this.te_VersionUrl);
+            this.xtraTabPage1.Controls.Add(this.labelControl1);
             this.xtraTabPage1.Name = "xtraTabPage1";
             this.xtraTabPage1.Size = new System.Drawing.Size(616, 280);
             this.xtraTabPage1.Text = "安全设置";
@@ -70,17 +76,36 @@
             this.xtraTabPage2.Size = new System.Drawing.Size(616, 280);
             this.xtraTabPage2.Text = "基本设置";
             // 
+            // labelControl1
+            // 
+            this.labelControl1.Location = new System.Drawing.Point(23, 36);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(76, 14);
+            this.labelControl1.TabIndex = 0;
+            this.labelControl1.Text = "软件升级地址:";
+            // 
+            // te_VersionUrl
+            // 
+            this.te_VersionUrl.Location = new System.Drawing.Point(105, 33);
+            this.te_VersionUrl.Name = "te_VersionUrl";
+            this.te_VersionUrl.Size = new System.Drawing.Size(245, 20);
+            this.te_VersionUrl.TabIndex = 1;
+            // 
             // SysSetingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(618, 374);
             this.Controls.Add(this.xtraTabControl1);
+            this.IconOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("SysSetingForm.IconOptions.SvgImage")));
             this.Name = "SysSetingForm";
             this.Text = "系统设置";
             this.Controls.SetChildIndex(this.xtraTabControl1, 0);
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             this.xtraTabControl1.ResumeLayout(false);
+            this.xtraTabPage1.ResumeLayout(false);
+            this.xtraTabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.te_VersionUrl.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -90,5 +115,7 @@
         private DevExpress.XtraTab.XtraTabControl xtraTabControl1;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage2;
+        private DevExpress.XtraEditors.TextEdit te_VersionUrl;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
     }
 }

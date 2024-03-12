@@ -57,7 +57,7 @@ namespace CoarseFoodErp
         private void RegistEvent()
         {
             InitMenu();
-            // this.xtraTabbedMdiManager1.PageAdded += XtraTabbedMdiManager1_PageAdded;
+            this.xtraTabbedMdiManager1.PageAdded += XtraTabbedMdiManager1_PageAdded;
             btn_Update.ItemClick += Btn_Update_ItemClick;
             bar_LogOut.ItemClick += Bar_LogOut_ItemClick;
         

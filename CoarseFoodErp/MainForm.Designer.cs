@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.pic_MdiImage = new DevExpress.XtraEditors.PictureEdit();
             this.bar4 = new DevExpress.XtraBars.Bar();
             this.bar5 = new DevExpress.XtraBars.Bar();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
@@ -89,23 +88,14 @@
             this.barEditItem1 = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemPictureEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit();
             this.barLargeButtonItem22 = new DevExpress.XtraBars.BarLargeButtonItem();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_MdiImage.Properties)).BeginInit();
+            this.pic_MdiImage = new DevExpress.XtraEditors.PictureEdit();
+            this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_MdiImage.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pic_MdiImage
-            // 
-            this.pic_MdiImage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pic_MdiImage.EditValue = global::CoarseFoodErp.Properties.Resources._9054803;
-            this.pic_MdiImage.Location = new System.Drawing.Point(0, 66);
-            this.pic_MdiImage.Name = "pic_MdiImage";
-            this.pic_MdiImage.Properties.AllowZoom = DevExpress.Utils.DefaultBoolean.True;
-            this.pic_MdiImage.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.pic_MdiImage.Properties.ShowMenu = false;
-            this.pic_MdiImage.Size = new System.Drawing.Size(1098, 560);
-            this.pic_MdiImage.TabIndex = 16;
             // 
             // bar4
             // 
@@ -456,6 +446,7 @@
             this.barLargeButtonItem21.Caption = "系统设置(&B)";
             this.barLargeButtonItem21.Id = 42;
             this.barLargeButtonItem21.Name = "barLargeButtonItem21";
+            this.barLargeButtonItem21.Tag = "CoarseFoodErp.CoarseFoodForm.SysSeting.SysSetingForm";
             // 
             // barLargeButtonItem6
             // 
@@ -652,6 +643,23 @@
             this.barLargeButtonItem22.Name = "barLargeButtonItem22";
             this.barLargeButtonItem22.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionInMenu;
             // 
+            // pic_MdiImage
+            // 
+            this.pic_MdiImage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pic_MdiImage.EditValue = global::CoarseFoodErp.Properties.Resources._9054803;
+            this.pic_MdiImage.Location = new System.Drawing.Point(0, 66);
+            this.pic_MdiImage.Name = "pic_MdiImage";
+            this.pic_MdiImage.Properties.AllowZoom = DevExpress.Utils.DefaultBoolean.True;
+            this.pic_MdiImage.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.pic_MdiImage.Properties.ShowMenu = false;
+            this.pic_MdiImage.Size = new System.Drawing.Size(1098, 560);
+            this.pic_MdiImage.TabIndex = 23;
+            // 
+            // xtraTabbedMdiManager1
+            // 
+            this.xtraTabbedMdiManager1.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InAllTabPagesAndTabControlHeader;
+            this.xtraTabbedMdiManager1.MdiParent = this;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -669,18 +677,17 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "出入库管理系统";
-            ((System.ComponentModel.ISupportInitialize)(this.pic_MdiImage.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_MdiImage.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-       // private DevExpress.XtraTabbedMdi.XtraTabbedMdiManager xtraTabbedMdiManager1;
-        private DevExpress.XtraEditors.PictureEdit pic_MdiImage;
         private DevExpress.XtraBars.Bar bar5;
         private DevExpress.XtraBars.Bar bar4;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
@@ -740,6 +747,8 @@
         private DevExpress.XtraBars.BarLargeButtonItem barLargeButtonItem22;
         private DevExpress.XtraBars.BarButtonItem bar_UpdatePwd;
         private DevExpress.XtraBars.BarButtonItem bar_LogOut;
+        private DevExpress.XtraEditors.PictureEdit pic_MdiImage;
+        private DevExpress.XtraTabbedMdi.XtraTabbedMdiManager xtraTabbedMdiManager1;
     }
 }
 

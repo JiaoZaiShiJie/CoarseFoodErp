@@ -1,102 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Windows.Media;
-using CoarseFoodErp.Utils;
-using DevExpress.XtraEditors;
-using JBaseCommon.JBaseForm;
-using JCommon.Jot;
-using Jot.Configuration;
-using TouchSocket.Core;
 
-namespace CoarseFoodErp.CoarseFoodForm.SysSeting
+namespace CoarseFoodErp.Utils
 {
-    public partial class SysSetingForm : BaseEditForm, ITrackingAware
-    {
-
-        #region 构造函数
-        public SysSetingForm()
-        {
-            InitializeComponent();
-
-        }
-        #endregion
-
-        #region 保存成功
-
-        private void SavePerProerty(SysSetingForm sysSetingForm)
-        {
-        }
-
-        #endregion 保存成功
-
-        #region 实现Jot接口
-        public void ConfigureTracking(TrackingConfiguration configuration)
-        {
-            var cfg = configuration.AsGeneric<SysSetingForm>();
-            cfg.Id(_ => E_SysKey.基础设置.ToString(), null, false);
-            cfg.Property<string>(f => f.te_VersionUrl.Text,"www.test.coom", E_SysKey_Type.软件升级Url.ToString());
-
-            cfg
-                .PersistOn(nameof(Click), this.sb_Save)
-                .WhenPersisted((f) => this.SavePerProerty(f))
-                .StopTrackingOn("FormClosing");
-
-        }
-        #endregion
-
-
-        private void Button1_Click(object sender, EventArgs e)
-        {
-
-            byte[] data= Encoding.ASCII.GetBytes("22.56KG");
-
-            //byte[] data = new byte[22];
-            //data[0] = 0x55;
-            //data[1] = 0x55;
-            //data[2] = 0xAA;
-            //data[3] = 0xAA;
-            //data[4] = 0x00;
-            //data[5] = 0x00;
-            //data[6] = 0x00;
-            //data[7] = 0x01;
-            //data[8] = 0x00;
-            //data[9] = 0x01;
-            //data[10] = 0x00;
-            //data[11] = 0x02;
-            //data[12] = 0x01;
-            //data[13] = 0x02;
-
-            ////882340E7
-            //data[14] = 0x88;
-            //data[15] = 0x23;
-            //data[16] = 0x40;
-            //data[17] = 0xE7;
-
-            //data[18] = 0xBB;
-
-            //data[19] = 0xBB;
-            //data[20] = 0x66;
-            //data[21] = 0x66;
-
-            //55 55 AA AA 00 00 00 01 00 01 00 02 01 02 
-
-            uint result = Crc32Calculator.CalculateCrc32(data);
-           Crc32Calculator.ParseAndVerifyCrc32(data);
-
-
-        }
-
-
-
-
-    }
     public class Crc32Calculator
     {
         private static readonly UInt32[] crcTable = CreateCRCTable();
@@ -160,5 +69,4 @@ namespace CoarseFoodErp.CoarseFoodForm.SysSeting
             Console.WriteLine($"CRC32校验结果：{(isValid ? "有效" : "无效")}");
         }
     }
-
 }

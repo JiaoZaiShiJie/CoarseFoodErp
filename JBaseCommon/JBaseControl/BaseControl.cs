@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DevExpress.XtraEditors;
 using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Views.Grid;
 using JBaseCommon.Utils;
@@ -15,6 +17,8 @@ namespace JBaseCommon.BaseControl
 {
     public partial class BaseControl : UserControl
     {
+
+        #region 字段
         #region 重写DesignModel
         protected new bool DesignMode
         {
@@ -195,6 +199,13 @@ namespace JBaseCommon.BaseControl
 
         #endregion 面板显示
 
+        #region 隐藏右键菜单
+        [Browsable(true)]
+        [Description("是否右键菜单")]
+        public bool HideContextMenu { get; set; }
+        #endregion
+        #endregion
+
         #region 构造函数
         public BaseControl()
         {
@@ -219,5 +230,122 @@ namespace JBaseCommon.BaseControl
 
         #endregion 是否显示按钮
 
+        #region 公开方法
+        //#region 初始化
+
+        //protected override void OnLoad(EventArgs e)
+        //{
+        //    base.OnLoad(e);
+        //    if (!DesignMode)
+        //    {
+        //        //GridLocationMode(GlobalQueryFunc.DynamicInvoke());
+        //        //GetDataAsync();
+        //    }
+        //}
+
+        //public void InitControl<T>(BindingInfo<T> bindingInfo)
+        //{
+
+        //    fGridControl = bindingInfo.GridControl;
+        //    fGridView = bindingInfo.GridView;
+        //    TableProperty(bindingInfo.HasCheckboxColumn);
+        //    EventRegister();
+        //    this.key = bindingInfo.KeyField;
+        //    GlobalQueryFunc = bindingInfo.DataLoader;
+
+        //}
+
+        //#endregion 初始化
+
+        #region 窗体初始化
+
+        public void InitForm(Type editForm, string text)
+        {
+            fFormTitle = text;
+            fFormType = editForm;
+        }
+
+        #endregion 窗体初始化
+
+     
+
+        #region 刷新数据
+
+        public void RefreshData(object iDataSource)
+        {
+            fTableData = GlobalQueryFunc.DynamicInvoke() as DataTable;
+           // GridLocationMode(fTableData);
+        }
+
+        #endregion 刷新数据
+
+        #region 导出表格
+
+        public void ExportToExcel()
+        {
+            if (fGridView.RowCount > 0)
+            {
+                string name = string.Empty;
+                if (ParentForm != null)
+                {
+                    name = ParentForm.Text + "_";
+                }
+                string path = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
+                path = Path.Combine(path, $"{name}_{DateTime.Now:yyyyMMddHHmmss}.xls");
+                DevExpress.XtraPrinting.XlsExportOptionsEx options = new DevExpress.XtraPrinting.XlsExportOptionsEx
+                {
+                    ShowGridLines = true,
+                    TextExportMode = DevExpress.XtraPrinting.TextExportMode.Value,
+                    ExportType = DevExpress.Export.ExportType.Default
+                };
+                fGridView.ExportToXls(path, options);
+                XtraMessageBox.Show(this, "导出Excel成功,请在桌面查看！", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                XtraMessageBox.Show(this, "不能导出空数据!", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        #endregion 导出表格
+        #endregion
+
+        #region 私有方法
+        #region 首条
+
+        private void MoveFirst()
+        {
+            fGridView.MoveFirst();
+        }
+
+        #endregion 首条
+
+        #region 末条
+
+        private void MoveLast()
+        {
+            fGridView.MoveLast();
+        }
+
+        #endregion 末条
+
+        #region 上一条
+
+        private void MovePrev()
+        {
+            fGridView.MovePrev();
+        }
+
+        #endregion 上一条
+
+        #region 下一条
+
+        private void MoveNext()
+        {
+            fGridView.MoveNext();
+        }
+
+        #endregion 下一条
+        #endregion
     }
 }

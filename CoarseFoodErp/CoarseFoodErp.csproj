@@ -167,6 +167,7 @@
     <Compile Include="testForm.Designer.cs">
       <DependentUpon>testForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utils\CRC.cs" />
     <Compile Include="Utils\DbContextHelper.cs" />
     <Compile Include="Utils\Job\MainFormJOb.cs" />
     <Compile Include="Utils\JotMenu.cs" />
