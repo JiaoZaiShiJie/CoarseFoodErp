@@ -51,7 +51,15 @@ namespace JBaseCommon.JBaseForm
             this.sb_Cancel.Click += Sb_Cancel_Click;
             this.sb_Update.Click += Sb_Update_Click;
             this.FormClosing += AutoUpdateForm_FormClosing;
-            AutoUpdater.Start(JotConfigService.GetData(E_SysKey.基础设置,E_SysKey_Type.软件升级Url).ToString());
+            if (!string.IsNullOrEmpty(JotConfigService.GetData(E_SysKey.基础设置, E_SysKey_Type.软件升级Url).ToString()))
+            {
+                AutoUpdater.Start();
+            }
+            else
+            {
+                this.MemoAdd("服务器升级地址未填写,请填写服务器升级地址");
+            }
+
         }
 
         #region 窗体关闭前发生
