@@ -31,9 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SysSetingForm));
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
-            this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.te_VersionUrl = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.xtraTabPage1.SuspendLayout();
@@ -70,11 +70,12 @@
             this.xtraTabPage1.Size = new System.Drawing.Size(616, 280);
             this.xtraTabPage1.Text = "安全设置";
             // 
-            // xtraTabPage2
+            // te_VersionUrl
             // 
-            this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(616, 280);
-            this.xtraTabPage2.Text = "基本设置";
+            this.te_VersionUrl.Location = new System.Drawing.Point(105, 30);
+            this.te_VersionUrl.Name = "te_VersionUrl";
+            this.te_VersionUrl.Size = new System.Drawing.Size(245, 20);
+            this.te_VersionUrl.TabIndex = 1;
             // 
             // labelControl1
             // 
@@ -84,12 +85,11 @@
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "软件升级地址:";
             // 
-            // te_VersionUrl
+            // xtraTabPage2
             // 
-            this.te_VersionUrl.Location = new System.Drawing.Point(105, 33);
-            this.te_VersionUrl.Name = "te_VersionUrl";
-            this.te_VersionUrl.Size = new System.Drawing.Size(245, 20);
-            this.te_VersionUrl.TabIndex = 1;
+            this.xtraTabPage2.Name = "xtraTabPage2";
+            this.xtraTabPage2.Size = new System.Drawing.Size(616, 280);
+            this.xtraTabPage2.Text = "基本设置";
             // 
             // SysSetingForm
             // 

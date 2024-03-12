@@ -13,6 +13,7 @@ using CoarseFoodErp.CoarseFoodForm.SysSeting;
 using DevExpress.Data.ExpressionEditor;
 using System.Net.Http;
 using System.Net;
+using JBaseCommon.Utils;
 namespace CoarseFoodErp
 {
     internal static class Program
