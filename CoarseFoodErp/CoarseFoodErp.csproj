@@ -170,7 +170,6 @@
     <Compile Include="Utils\CRC.cs" />
     <Compile Include="Utils\DbContextHelper.cs" />
     <Compile Include="Utils\Job\MainFormJOb.cs" />
-    <Compile Include="Utils\JotMenu.cs" />
     <Compile Include="Utils\MyKey.cs" />
     <Compile Include="Utils\QuartzHelper.cs" />
     <EmbeddedResource Include="CoarseFoodForm\SettIementManagement\SettlementForm.resx">

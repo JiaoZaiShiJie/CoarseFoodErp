@@ -13,6 +13,8 @@ using AutoUpdaterDotNET;
 using DevExpress.Data.ExpressionEditor;
 using DevExpress.XtraEditors;
 using JBaseCommon.Properties;
+using JBaseCommon.Utils;
+using JCommon.Jot;
 using Microsoft.Win32;
 
 namespace JBaseCommon.JBaseForm
@@ -49,7 +51,7 @@ namespace JBaseCommon.JBaseForm
             this.sb_Cancel.Click += Sb_Cancel_Click;
             this.sb_Update.Click += Sb_Update_Click;
             this.FormClosing += AutoUpdateForm_FormClosing;
-            AutoUpdater.Start("http://192.168.10.106/1.xml");
+            AutoUpdater.Start(JotConfigService.GetData(E_SysKey.基础设置,E_SysKey_Type.软件升级Url).ToString());
         }
 
         #region 窗体关闭前发生

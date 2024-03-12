@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CoarseFoodErp.Utils
+namespace JBaseCommon.Utils
 {
-
     #region 父级
-    internal enum E_SysKey
+    public enum E_SysKey
     {
         皮肤设置,
         基础设置
@@ -16,12 +15,10 @@ namespace CoarseFoodErp.Utils
     #endregion
 
     #region 子级
-    internal enum E_SysKey_Type
+    public enum E_SysKey_Type
     {
         皮肤名称,
         软件升级Url
     }
     #endregion
-
-
 }
