@@ -24,7 +24,11 @@ namespace CoarseFoodErp.CoarseFoodControl
         {
             base.OnLoad(e);
             DataTable func() => SqlSugarHelper.Db.Ado.GetDataTable("select * from SysUser");
-            this.InitControl(this.gc_Main, this.gv_Main, func, "KeyUser",true);
+
+            Func<string, bool> delefunc = key => SqlSugarHelper.Db.Ado.ExecuteCommand($"delete from SysUser where SysUser.KeyUser='{key}'") > 0;
+
+            this.InitControl(this.gc_Main, this.gv_Main, func, delefunc, "KeyUser",true);
         }
+      
     }
 }

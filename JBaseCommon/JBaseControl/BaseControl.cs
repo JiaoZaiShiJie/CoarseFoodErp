@@ -8,9 +8,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DevExpress.Data;
+using DevExpress.XtraBars.Customization;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Views.Grid;
+using JBaseCommon.JBaseForm;
 using JBaseCommon.Utils;
 using JCommon;
 
@@ -112,6 +115,7 @@ namespace JBaseCommon.BaseControl
         #region Fun
 
         public Delegate GlobalQueryFunc;
+        public Delegate GlobalDelFunc;
 
         #endregion Fun
 
@@ -253,7 +257,7 @@ namespace JBaseCommon.BaseControl
         /// <param name="gridView">gv</param>
         /// <param name="keyFiled">主键名称</param>
         /// <param name="checkBox">是否多选框</param>
-        public void InitControl<T>(GridControl gridControl,GridView gridView,Func<T> action,string keyFiled,bool CheckboxColumn=false)
+        public void InitControl<T>(GridControl gridControl,GridView gridView,Func<T> action,Func<string,bool> delefunc,string keyFiled,bool CheckboxColumn=false)
         {
             fGridControl = gridControl;
             fGridView = gridView;
@@ -261,6 +265,7 @@ namespace JBaseCommon.BaseControl
             TableProperty(CheckboxColumn);
             this.key = keyFiled;
             GlobalQueryFunc = action;
+            GlobalDelFunc = delefunc;
             BindData(GlobalQueryFunc.DynamicInvoke());
 
         }
@@ -332,28 +337,149 @@ namespace JBaseCommon.BaseControl
         }
         #endregion
 
-        #region 注册事件
-        private void RegistEvent()
-        {
-            this.fGridView.CustomDrawRowIndicator += FGridView_CustomDrawRowIndicator1;
-        }
-
-       
-        #endregion
 
         #region 刷新数据
 
-        public void RefreshData(object iDataSource)
+        public void RefreshData()
         {
             fTableData = GlobalQueryFunc.DynamicInvoke() as DataTable;
-           // GridLocationMode(fTableData);
+            BinData(fTableData);
         }
 
         #endregion 刷新数据
 
+        #region 注册事件
+        private void RegistEvent()
+        {
+            this.fGridView.CustomDrawRowIndicator += FGridView_CustomDrawRowIndicator1;
+            this.sb_MoveFirst.Click += Sb_MoveFirst_Click;
+            this.sb_MoveLast.Click += Sb_MoveLast_Click;
+            this.sb_MoveNext.Click += Sb_MoveNext_Click;
+            this.sb_MovePrev.Click += Sb_MovePrev_Click;
+            this.sb_Refresh.Click += Sb_Refresh_Click;
+            this.sb_Add.Click += Sb_Add_Click;
+            this.sb_Delete.Click += Sb_Delete_Click;
+            this.sb_Edit.Click += Sb_Edit_Click;
+            this.sb_ExportExcel.Click += Sb_ExportExcel_Click;
+            this.fGridView.FocusedRowChanged += FGridView_FocusedRowChanged1;
+            fGridControl.DataSourceChanged += FGridControl_DataSourceChanged; ;
+        }
+
+       
+
+
+      
+
+
+
+
+
+        #endregion
+
+
+
+
+
+        #endregion
+
+
+
+
+        #region 虚方法
+
+        #region 绑定数据/获取数据
+        protected virtual void BindDataAsync()
+        {
+        }
+
+        protected virtual void GetDataAsync()
+        {
+        }
+        #endregion
+
+        #region 清除表单数据
+        /// <summary>
+        /// 清除表单数据
+        /// </summary>
+        protected virtual void ClearData()
+        {
+
+        }
+        #endregion
+
+        #region 删除方法
+        protected virtual bool DeleteData()
+        {
+            return (bool)GlobalDelFunc.DynamicInvoke(masterkey);
+        }
+        #endregion
+
+
+        #endregion 虚方法
+
+        #region 私有方法
+        #region 首条
+
+        private void MoveFirst()
+        {
+            fGridView.MoveFirst();
+        }
+
+        #endregion 首条
+
+        #region 末条
+
+        private void MoveLast()
+        {
+            fGridView.MoveLast();
+        }
+
+        #endregion 末条
+
+        #region 删除
+        private void DeleteRow()
+        {
+            if (Data == null && !string.IsNullOrEmpty(MasterKey))
+            {
+                XtraMessageBox.Show(this, "请先选中一条数据", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (!DeleteData())
+            {
+                XtraMessageBox.Show(this, "删除失败", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+                this.fGridView.DeleteRow(this.fGridView.GetFocusedDataSourceRowIndex());
+                this.fGridView.RefreshData();
+                XtraMessageBox.Show(this, "删除成功", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+        }
+        #endregion
+
+        #region 上一条
+
+        private void MovePrev()
+        {
+            fGridView.MovePrev();
+        }
+
+        #endregion 上一条
+
+        #region 下一条
+
+        private void MoveNext()
+        {
+            fGridView.MoveNext();
+        }
+
+        #endregion 下一条
+
         #region 导出表格
 
-        public void ExportToExcel()
+        private void ExportToExcel()
         {
             if (fGridView.RowCount > 0)
             {
@@ -380,56 +506,6 @@ namespace JBaseCommon.BaseControl
         }
 
         #endregion 导出表格
-        #endregion
-
-        #region 虚方法
-
-        protected virtual void BindDataAsync()
-        {
-        }
-
-        protected virtual void GetDataAsync()
-        {
-        }
-
-        #endregion 虚方法
-
-        #region 私有方法
-        #region 首条
-
-        private void MoveFirst()
-        {
-            fGridView.MoveFirst();
-        }
-
-        #endregion 首条
-
-        #region 末条
-
-        private void MoveLast()
-        {
-            fGridView.MoveLast();
-        }
-
-        #endregion 末条
-
-        #region 上一条
-
-        private void MovePrev()
-        {
-            fGridView.MovePrev();
-        }
-
-        #endregion 上一条
-
-        #region 下一条
-
-        private void MoveNext()
-        {
-            fGridView.MoveNext();
-        }
-
-        #endregion 下一条
 
         #region GridView定位模式(默认.尾部.选中行)
 
@@ -454,9 +530,115 @@ namespace JBaseCommon.BaseControl
 
         #endregion GridView定位模式(默认.尾部.选中行)
 
+        #region 窗体增改方法
+
+        #region AddEdit方法
+
+        private void AddEdit(bool IsAdd)
+        {
+            if (IsAdd && AddClick != null)
+            {
+                AddClick?.Invoke(this, null);
+            }
+            else if (!IsAdd && EditClick != null)
+            {
+                EditClick?.Invoke(this, null);
+            }
+
+            if (fFormType != null)
+            {
+                using (var addForm = Activator.CreateInstance(fFormType) as BaseEditForm)
+                {
+                    addForm.Text = (IsAdd ? "新增" : "编辑") + fFormTitle;
+                    addForm.Owner = FindForm();
+                    addForm.Data = IsAdd ? null : Data;
+                    addForm.IsAdd = IsAdd;
+                    addForm.SaveDataEvent += () =>
+                    {
+                        this.RefreshData();
+                    };
+                    addForm.ShowDialog();
+
+                }
+            }
+        }
+
+        #endregion AddEdit方法
+
+        #endregion 窗体增删改方法
+
         #endregion
 
         #region 事件
+
+        #region 上一条
+        private void Sb_MovePrev_Click(object sender, EventArgs e)
+        {
+            MovePrev();
+        }
+        #endregion
+
+        #region 下一条
+        private void Sb_MoveNext_Click(object sender, EventArgs e)
+        {
+            MoveNext();
+        }
+        #endregion
+
+        #region 末条
+        private void Sb_MoveLast_Click(object sender, EventArgs e)
+        {
+            MoveLast();
+        }
+        #endregion
+
+        #region 首条
+        private void Sb_MoveFirst_Click(object sender, EventArgs e)
+        {
+            MoveFirst();
+        }
+        #endregion
+
+        #region 编辑事件
+        private void Sb_Edit_Click(object sender, EventArgs e)
+        {
+            AddEdit(false);
+        }
+
+        #endregion
+
+        #region 增加事件
+        private void Sb_Add_Click(object sender, EventArgs e)
+        {
+            AddEdit(true);
+        }
+        #endregion
+
+        #region 删除事件
+        private void Sb_Delete_Click(object sender, EventArgs e)
+        {
+            DeleteRow();
+        }
+
+
+        #endregion
+
+        #region 刷新
+        private void Sb_Refresh_Click(object sender, EventArgs e)
+        {
+            RefreshData();
+        }
+        #endregion
+
+        #region 导出
+        private void Sb_ExportExcel_Click(object sender, EventArgs e)
+        {
+            ExportToExcel();
+        }
+        #endregion
+
+      
+
         #region 显示行号
         private void FGridView_CustomDrawRowIndicator1(object sender, RowIndicatorCustomDrawEventArgs e)
         {
@@ -467,6 +649,75 @@ namespace JBaseCommon.BaseControl
             }
         }
         #endregion
+
+        #region 选中行
+        private void FGridView_FocusedRowChanged1(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            fFocusChanged = true;
+            OnSelectChanged(key);
+        }
+        private void OnSelectChanged(string key)
+        {
+            Data = fGridView.GetFocusedDataRow();
+            if (Data != null)
+            {
+                masterkey = Data.DataRowToString(key);
+                Console.WriteLine(masterkey);
+            }
+        }
+
+        #endregion 选中行
+
+        #region 数据源绑定改变事件
+        private void FGridControl_DataSourceChanged(object sender, EventArgs e)
+        {
+            if (!fFocusChanged)
+            {
+                OnSelectChanged(key);
+            }
+            else
+            {
+                fFocusChanged = false;
+            }
+        }
+        #endregion
+
+        #region 自定义委托事件
+
+        #region 选中行改变
+
+        public event SelectionChangedEventHandler SelectChanged;
+
+        #endregion 选中行改变
+
+        #region 选中行
+
+        /// <param name="key">主键key</param>
+        public delegate void SelectRowDelegate(string key);
+
+        public event SelectRowDelegate SelectRowEvent;
+
+        #endregion 选中行
+
+        #region 增加事件
+
+        public event EventHandler AddClick;
+
+        #endregion 增加事件
+
+        #region 编辑事件
+
+        public event EventHandler EditClick;
+
+        #endregion 编辑
+
+        #region 删除事件
+
+        // public event GlobalQueryFunc DeleteClick;
+
+        #endregion 删除
+
+        #endregion 自定义委托事件
         #endregion
 
 

@@ -16,6 +16,9 @@ namespace JBaseCommon.JBaseForm
     public partial class BaseEditForm : BaseForm
     {
         #region 字段
+        #region 自定义事件
+        public event Action SaveDataEvent;
+        #endregion
 
         #region 验证规则
         /// <summary>
@@ -79,8 +82,8 @@ namespace JBaseCommon.JBaseForm
         public DataTable GetDataTable { get; set; }
         #endregion
 
-        #region 是否编辑模式
-        public bool IsEdit { get; set; }
+        #region 是否新增模式
+        public bool IsAdd { get; set; }
         #endregion
        
         #endregion
@@ -92,6 +95,7 @@ namespace JBaseCommon.JBaseForm
         }
         #endregion
 
+        #region 重写加载函数
         protected override void OnLoad(EventArgs e)
         {
             if (this.DesignMode)
@@ -103,10 +107,9 @@ namespace JBaseCommon.JBaseForm
                 InitValidationRules();
                 if (this.Visible)
                 {
-                    //this.MinimizeBox = false;
-                    //this.MaximizeBox = false;
                     this.SetValidationRule();
                 }
+                PreloadData();
                 base.OnLoad(e);
             }
             catch (Exception ex)
@@ -114,6 +117,9 @@ namespace JBaseCommon.JBaseForm
                 LogHelper.WriteError(this.GetType(), ex);
             }
         }
+        #endregion
+
+
 
 
         #region 注册事件
@@ -148,6 +154,7 @@ namespace JBaseCommon.JBaseForm
            DialogResult dialog= XtraMessageBox.Show("保存数据成功", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             if (dialog == DialogResult.OK)
             {
+                SaveDataEvent();
                 this.Close();
             }
            
@@ -160,6 +167,14 @@ namespace JBaseCommon.JBaseForm
             this.Close();
         }
         #endregion
+
+        #region 抽象预加载数据
+        protected virtual void PreloadData()
+        {
+
+        }
+        #endregion
+
         #endregion
 
         #region 控件设置验证规则

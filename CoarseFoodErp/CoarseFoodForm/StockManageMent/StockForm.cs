@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CoarseFoodErp.CoarseFoodForm.StockManageMent;
 using DevExpress.XtraEditors;
 using JBaseCommon.JBaseForm;
 
@@ -19,7 +20,7 @@ namespace CoarseFoodErp.StockManageMent
         public StockForm()
         {
             InitializeComponent();
-           // uc_StockControl.InitForm(, "温馨提示");
+            uc_StockControl.InitForm(typeof(EditStockForm) , "用户表");
         }
         #endregion
 
