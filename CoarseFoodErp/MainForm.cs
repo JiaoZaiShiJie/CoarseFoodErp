@@ -60,8 +60,16 @@ namespace CoarseFoodErp
             this.xtraTabbedMdiManager1.PageAdded += XtraTabbedMdiManager1_PageAdded;
             btn_Update.ItemClick += Btn_Update_ItemClick;
             bar_LogOut.ItemClick += Bar_LogOut_ItemClick;
+            this.FormClosing += MainForm_FormClosing;
         
         }
+        #region 窗体关闭前发生
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+        #endregion
+
         #region 退出系统
         private void Bar_LogOut_ItemClick(object sender, ItemClickEventArgs e)
         {

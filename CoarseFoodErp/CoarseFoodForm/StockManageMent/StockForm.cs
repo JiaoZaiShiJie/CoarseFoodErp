@@ -19,15 +19,11 @@ namespace CoarseFoodErp.StockManageMent
         public StockForm()
         {
             InitializeComponent();
+           // uc_StockControl.InitForm(, "温馨提示");
         }
         #endregion
 
-        #region 重写OnLoad
-        protected override  void OnLoad(EventArgs e)
-        {
-            base.OnLoad(e);
-        }
-        #endregion
+      
 
 
 

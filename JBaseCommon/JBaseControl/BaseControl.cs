@@ -12,6 +12,7 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Views.Grid;
 using JBaseCommon.Utils;
+using JCommon;
 
 namespace JBaseCommon.BaseControl
 {
@@ -153,9 +154,12 @@ namespace JBaseCommon.BaseControl
         #endregion 是否显示按钮
 
         #region Gridview刷新选中模式
-
+        private CustomGridRefshEnum gridRefshEnum;
         [Description("设置刷新选中三种模式"), DefaultValue("首行")]
-        public CustomGridRefshEnum GridRefsh { get; set; }
+        public CustomGridRefshEnum GridRefsh { 
+            get { return gridRefshEnum; }
+            set { gridRefshEnum = value; }
+        }
 
         #endregion Gridview刷新选中模式
 
@@ -231,31 +235,74 @@ namespace JBaseCommon.BaseControl
         #endregion 是否显示按钮
 
         #region 公开方法
-        //#region 初始化
+        #region 初始化
 
-        //protected override void OnLoad(EventArgs e)
-        //{
-        //    base.OnLoad(e);
-        //    if (!DesignMode)
-        //    {
-        //        //GridLocationMode(GlobalQueryFunc.DynamicInvoke());
-        //        //GetDataAsync();
-        //    }
-        //}
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            if (!DesignMode)
+            {
+              
+                GetDataAsync();
+            }
+        }
+        /// <summary>
+        /// 初始化控件
+        /// </summary>
+        /// <param name="gridControl">gc</param>
+        /// <param name="gridView">gv</param>
+        /// <param name="keyFiled">主键名称</param>
+        /// <param name="checkBox">是否多选框</param>
+        public void InitControl<T>(GridControl gridControl,GridView gridView,Func<T> action,string keyFiled,bool CheckboxColumn=false)
+        {
+            fGridControl = gridControl;
+            fGridView = gridView;
+            RegistEvent();
+            TableProperty(CheckboxColumn);
+            this.key = keyFiled;
+            GlobalQueryFunc = action;
+            BindData(GlobalQueryFunc.DynamicInvoke());
 
-        //public void InitControl<T>(BindingInfo<T> bindingInfo)
-        //{
+        }
 
-        //    fGridControl = bindingInfo.GridControl;
-        //    fGridView = bindingInfo.GridView;
-        //    TableProperty(bindingInfo.HasCheckboxColumn);
-        //    EventRegister();
-        //    this.key = bindingInfo.KeyField;
-        //    GlobalQueryFunc = bindingInfo.DataLoader;
+        #endregion 初始化
 
-        //}
+        #region 表格属性配置
+        /// <summary>
+        /// 表格属性配置
+        /// </summary>
+        /// <param name="IsCheckColum">是否显示多选框</param>
+        private void TableProperty(bool IsCheckColum)
+        {
+            if (HideContextMenu)
+            {
+                fGridControl.ContextMenuStrip = cms_Tools;
+            }
+            fGridView.OptionsBehavior.Editable = false;
+            fGridView.OptionsBehavior.ReadOnly = true;
+            fGridView.OptionsPrint.AutoWidth = false;
+            fGridView.OptionsView.EnableAppearanceEvenRow = true;
+            fGridView.OptionsView.ShowAutoFilterRow = isShowAutoFilterRow;
+            fGridView.OptionsView.ShowGroupPanel = false;
+            fGridView.OptionsView.ColumnAutoWidth = false;
+            fGridView.HorzScrollStep = 100;
+            fGridView.OptionsSelection.MultiSelectMode = GridMultiSelectMode.CheckBoxRowSelect;
+            fGridView.OptionsView.ShowIndicator = true;
+            fGridView.OptionsSelection.EnableAppearanceFocusedCell = false;
+            fGridView.OptionsView.EnableAppearanceEvenRow = true;                                            //启用偶数行背景色
+            fGridView.OptionsView.EnableAppearanceOddRow = true;                                             //启用奇数行背景色
 
-        //#endregion 初始化
+            fGridView.Appearance.EvenRow.BackColor = System.Drawing.Color.FromArgb(230, 230, 250, 254);      //设置偶数行背景色
+            fGridView.Appearance.OddRow.BackColor = System.Drawing.Color.FromArgb(150, 199, 237, 204);       //设置奇数行背景色
+
+            fGridView.IndicatorWidth = 65;
+            if (IsCheckColum)
+            {
+                fGridView.OptionsSelection.MultiSelect = true;
+                fGridView.OptionsSelection.MultiSelectMode = GridMultiSelectMode.CheckBoxRowSelect;
+            }
+        }
+        #endregion
 
         #region 窗体初始化
 
@@ -267,7 +314,32 @@ namespace JBaseCommon.BaseControl
 
         #endregion 窗体初始化
 
-     
+        #region 绑定数据
+        private void BindData(object iDataSource)
+        {
+            fGridControl.BeginUpdate();
+            fGridControl.DataSource = iDataSource;
+            fGridControl.EndUpdate();
+            GridLocationMode();
+        }
+
+        public void BinData(DataTable fTableData)
+        {
+            fGridControl.BeginUpdate();
+            fGridControl.DataSource = fTableData;
+            fGridControl.EndUpdate();
+            GridLocationMode();
+        }
+        #endregion
+
+        #region 注册事件
+        private void RegistEvent()
+        {
+            this.fGridView.CustomDrawRowIndicator += FGridView_CustomDrawRowIndicator1;
+        }
+
+       
+        #endregion
 
         #region 刷新数据
 
@@ -310,6 +382,18 @@ namespace JBaseCommon.BaseControl
         #endregion 导出表格
         #endregion
 
+        #region 虚方法
+
+        protected virtual void BindDataAsync()
+        {
+        }
+
+        protected virtual void GetDataAsync()
+        {
+        }
+
+        #endregion 虚方法
+
         #region 私有方法
         #region 首条
 
@@ -346,6 +430,45 @@ namespace JBaseCommon.BaseControl
         }
 
         #endregion 下一条
+
+        #region GridView定位模式(默认.尾部.选中行)
+
+        private void GridLocationMode()
+        {
+            switch (GridRefsh)
+            {
+                case CustomGridRefshEnum.首行:
+                    fGridView.FocusedRowHandle = 0;
+                    break;
+
+                case CustomGridRefshEnum.刷新选中行:
+                    fGridView.FocusedRowHandle = fGridView.GetRowHandle(fGridView.GetFocusedDataSourceRowIndex()); ;
+                    break;
+
+                case CustomGridRefshEnum.末行:
+                    fGridView.FocusedRowHandle = fGridView.RowCount > 0 ? fGridView.RowCount - 1 : 0;
+                    break;
+            }
+            fGridView.TopRowIndex = fGridView.GetVisibleRowHandle(fGridView.FocusedRowHandle);
+        }
+
+        #endregion GridView定位模式(默认.尾部.选中行)
+
         #endregion
+
+        #region 事件
+        #region 显示行号
+        private void FGridView_CustomDrawRowIndicator1(object sender, RowIndicatorCustomDrawEventArgs e)
+        {
+            e.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            if (e.Info.IsRowIndicator && e.RowHandle > -1)
+            {
+                e.Info.DisplayText = (e.RowHandle + 1).ToString();
+            }
+        }
+        #endregion
+        #endregion
+
+
     }
 }
