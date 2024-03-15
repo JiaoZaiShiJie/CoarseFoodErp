@@ -1,0 +1,109 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <ProjectGuid>{91DE558C-6DB8-429B-A069-C0491DCFF15B}</ProjectGuid>
+        <OutputType>WinExe</OutputType>
+        <TargetFrameworks>net48;</TargetFrameworks>
+        <UseWindowsForms>true</UseWindowsForms>
+        <AssemblyTitle>ZipExtractor</AssemblyTitle>
+        <Company>RBSoft</Company>
+        <Product>ZipExtractor</Product>
+        <Copyright>Copyright © 2012-2024 RBSoft</Copyright>
+        <Version>1.4.0.0</Version>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
+        <FileVersion>1.4.0.0</FileVersion>
+        <ApplicationVersion>1.4.0.0</ApplicationVersion>
+        <ApplicationIcon>ZipExtractor.ico</ApplicationIcon>
+        <ApplicationManifest>app.manifest</ApplicationManifest>
+        <SignAssembly>false</SignAssembly>
+        <AssemblyOriginatorKeyFile>ZipExtractor.snk</AssemblyOriginatorKeyFile>
+        <NeutralLanguage>en</NeutralLanguage>
+        <LangVersion>default</LangVersion>
+        <IsPackable>false</IsPackable>
+        <PlatformTarget>AnyCPU</PlatformTarget>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(TargetFramework)' != 'net45' ">
+        <RuntimeIdentifier>win-x86</RuntimeIdentifier>
+        <PublishSingleFile>true</PublishSingleFile>
+        <SelfContained>false</SelfContained>
+        <PublishTrimmed>false</PublishTrimmed>
+        <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+        <DebugType>full</DebugType>
+        <DebugSymbols>true</DebugSymbols>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+        <OutputPath>..\AutoUpdater.NET\Resources</OutputPath>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+        <DebugType>none</DebugType>
+        <DebugSymbols>false</DebugSymbols>
+    </PropertyGroup>
+    <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
+        <Reference Include="System.IO.Compression" />
+        <Reference Include="System.IO.Compression.FileSystem" />
+        <Reference Include="System.Windows.Forms" />
+    </ItemGroup>
+    <ItemGroup>
+      <Reference Include="DevExpress.BonusSkins.v23.1">
+        <HintPath>C:\Users\Administrator.DESKTOP-KTHCAT9\Desktop\Dev\DevExpress.BonusSkins.v23.1.dll</HintPath>
+      </Reference>
+      <Reference Include="DevExpress.Data.Desktop.v23.1">
+        <HintPath>C:\Users\Administrator.DESKTOP-KTHCAT9\Desktop\Dev\DevExpress.Data.Desktop.v23.1.dll</HintPath>
+      </Reference>
+      <Reference Include="DevExpress.Data.v23.1">
+        <HintPath>C:\Users\Administrator.DESKTOP-KTHCAT9\Desktop\Dev\DevExpress.Data.v23.1.dll</HintPath>
+      </Reference>
+      <Reference Include="DevExpress.Drawing.v23.1">
+        <HintPath>C:\Users\Administrator.DESKTOP-KTHCAT9\Desktop\Dev\DevExpress.Drawing.v23.1.dll</HintPath>
+      </Reference>
+      <Reference Include="DevExpress.Pdf.v23.1.Core">
+        <HintPath>C:\Users\Administrator.DESKTOP-KTHCAT9\Desktop\Dev\DevExpress.Pdf.v23.1.Core.dll</HintPath>
+      </Reference>
+      <Reference Include="DevExpress.Pdf.v23.1.Drawing">
+        <HintPath>C:\Users\Administrator.DESKTOP-KTHCAT9\Desktop\Dev\DevExpress.Pdf.v23.1.Drawing.dll</HintPath>
+      </Reference>
+      <Reference Include="DevExpress.Printing.v23.1.Core">
+        <HintPath>C:\Users\Administrator.DESKTOP-KTHCAT9\Desktop\Dev\DevExpress.Printing.v23.1.Core.dll</HintPath>
+      </Reference>
+      <Reference Include="DevExpress.Sparkline.v23.1.Core">
+        <HintPath>C:\Users\Administrator.DESKTOP-KTHCAT9\Desktop\Dev\DevExpress.Sparkline.v23.1.Core.dll</HintPath>
+      </Reference>
+      <Reference Include="DevExpress.Utils.v23.1">
+        <HintPath>C:\Users\Administrator.DESKTOP-KTHCAT9\Desktop\Dev\DevExpress.Utils.v23.1.dll</HintPath>
+      </Reference>
+      <Reference Include="DevExpress.XtraBars.v23.1">
+        <HintPath>C:\Users\Administrator.DESKTOP-KTHCAT9\Desktop\Dev\DevExpress.XtraBars.v23.1.dll</HintPath>
+      </Reference>
+      <Reference Include="DevExpress.XtraEditors.v23.1">
+        <HintPath>C:\Users\Administrator.DESKTOP-KTHCAT9\Desktop\Dev\DevExpress.XtraEditors.v23.1.dll</HintPath>
+      </Reference>
+      <Reference Include="System.IO.Compression" />
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Update="Properties\Resources.Designer.cs">
+          <DesignTime>True</DesignTime>
+          <AutoGen>True</AutoGen>
+          <DependentUpon>Resources.resx</DependentUpon>
+        </Compile>
+        <Compile Update="Properties\Settings.Designer.cs">
+            <DesignTimeSharedInput>True</DesignTimeSharedInput>
+            <AutoGen>True</AutoGen>
+            <DependentUpon>Settings.settings</DependentUpon>
+        </Compile>
+    </ItemGroup>
+    <ItemGroup>
+      <EmbeddedResource Update="Properties\Resources.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+    </ItemGroup>
+    <ItemGroup>
+        <None Update="Properties\Settings.settings">
+            <Generator>SettingsSingleFileGenerator</Generator>
+            <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+        </None>
+    </ItemGroup>
+
+</Project>

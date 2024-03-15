@@ -25,11 +25,6 @@ namespace JBaseCommon.JBaseForm
         #region 字段
         UpdateInfoEventArgs updateInfoEventArgs;
 
-        #region 是否有更新
-        public bool IsUpdate = false;
-
-        public event Action<bool> IsupDateEvent;
-        #endregion
 
 
 
@@ -51,9 +46,10 @@ namespace JBaseCommon.JBaseForm
             this.sb_Cancel.Click += Sb_Cancel_Click;
             this.sb_Update.Click += Sb_Update_Click;
             this.FormClosing += AutoUpdateForm_FormClosing;
-            if (!string.IsNullOrEmpty(JotConfigService.GetData(E_SysKey.基础设置, E_SysKey_Type.软件升级Url).ToString()))
+            string url = JotConfigService.GetData(E_SysKey.基础设置, E_SysKey_Type.软件升级Url).ToString();
+            if (!string.IsNullOrEmpty(url))
             {
-                AutoUpdater.Start();
+                AutoUpdater.Start(url);
             }
             else
             {
@@ -109,10 +105,8 @@ namespace JBaseCommon.JBaseForm
             if (args.Error == null)
             {
                 updateInfoEventArgs = args;
-                IsUpdate = args.IsUpdateAvailable;
-                IsupDateEvent?.Invoke(IsUpdate);
                 string Content = string.Empty;
-                if (IsUpdate)
+                if (args.IsUpdateAvailable)
                 {
                     LoadingForm loadingForm = new LoadingForm();
                     loadingForm.SetCaption("正在获取更新信息");
@@ -158,12 +152,9 @@ namespace JBaseCommon.JBaseForm
 
                     };
                     loadingForm.ShowDialog();
-
-
                 }
                 else
                 {
-
                 }
             }
             else

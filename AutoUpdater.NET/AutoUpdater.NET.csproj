@@ -1,0 +1,106 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <ProjectGuid>{FB9E7E6B-B19F-4F37-A708-2996190CEF13}</ProjectGuid>
+        <OutputType>library</OutputType>
+        <TargetFrameworks>net48;</TargetFrameworks>
+        <UseWindowsForms>true</UseWindowsForms>
+        <UseWpf>true</UseWpf>
+        <RootNamespace>AutoUpdaterDotNET</RootNamespace>
+        <AssemblyTitle>AutoUpdater.NET</AssemblyTitle>
+        <Company>RBSoft</Company>
+        <Product>AutoUpdater.NET</Product>
+        <Copyright>Copyright © 2012-2024 RBSoft</Copyright>
+        <Version>1.8.5.0</Version>
+        <AssemblyVersion>1.8.5.0</AssemblyVersion>
+        <FileVersion>1.8.5.0</FileVersion>
+        <PackageVersion>1.8.5.0</PackageVersion>
+        <SignAssembly>false</SignAssembly>
+        <AssemblyOriginatorKeyFile>AutoUpdater.NET.snk</AssemblyOriginatorKeyFile>
+        <NeutralLanguage>en</NeutralLanguage>
+        <PackageId>Autoupdater.NET.Official</PackageId>
+        <IncludeSymbols>true</IncludeSymbols>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <Title>AutoUpdater.NET</Title>
+        <Authors>rbsoft</Authors>
+        <Description>AutoUpdater.NET is a class library that allows .NET developers to easily add auto update functionality to their WinForms or WPF application projects.</Description>
+        <PackageProjectUrl>https://github.com/ravibpatel/AutoUpdater.NET</PackageProjectUrl>
+        <PackageTags>autoupdate updater c# vb wpf winforms</PackageTags>
+        <PackageReleaseNotes>https://github.com/ravibpatel/AutoUpdater.NET/releases</PackageReleaseNotes>
+        <PackageOutputPath>build</PackageOutputPath>
+        <DocumentationFile>$(OutDir)\AutoUpdater.NET.xml</DocumentationFile>
+        <LangVersion>latest</LangVersion>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+        <DebugType>pdbonly</DebugType>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+        <DebugType>full</DebugType>
+    </PropertyGroup>
+    <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
+        <Reference Include="System" />
+        <Reference Include="System.Data" />
+        <Reference Include="System.Drawing" />
+        <Reference Include="System.Windows.Forms" />
+        <Reference Include="System.Xml" />
+        <Reference Include="WindowsBase" />
+        <Reference Include="PresentationFramework" />
+        <Reference Include="System.Xaml" />
+        <Reference Include="System.Runtime.Serialization" />
+        <PackageReference Include="Resource.Embedder" Version="1.2.8" PrivateAssets="All" />
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="build\lib\" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\ZipExtractor\ZipExtractor.csproj" />
+    </ItemGroup>
+    <ItemGroup>
+      <Reference Include="DevExpress.BonusSkins.v23.1">
+        <HintPath>C:\Users\Administrator.DESKTOP-KTHCAT9\Desktop\Dev\DevExpress.BonusSkins.v23.1.dll</HintPath>
+      </Reference>
+      <Reference Include="DevExpress.Data.Desktop.v23.1">
+        <HintPath>C:\Users\Administrator.DESKTOP-KTHCAT9\Desktop\Dev\DevExpress.Data.Desktop.v23.1.dll</HintPath>
+      </Reference>
+      <Reference Include="DevExpress.Data.v23.1">
+        <HintPath>C:\Users\Administrator.DESKTOP-KTHCAT9\Desktop\Dev\DevExpress.Data.v23.1.dll</HintPath>
+      </Reference>
+      <Reference Include="DevExpress.Drawing.v23.1">
+        <HintPath>C:\Users\Administrator.DESKTOP-KTHCAT9\Desktop\Dev\DevExpress.Drawing.v23.1.dll</HintPath>
+      </Reference>
+      <Reference Include="DevExpress.Pdf.v23.1.Core">
+        <HintPath>C:\Users\Administrator.DESKTOP-KTHCAT9\Desktop\Dev\DevExpress.Pdf.v23.1.Core.dll</HintPath>
+      </Reference>
+      <Reference Include="DevExpress.Pdf.v23.1.Drawing">
+        <HintPath>C:\Users\Administrator.DESKTOP-KTHCAT9\Desktop\Dev\DevExpress.Pdf.v23.1.Drawing.dll</HintPath>
+      </Reference>
+      <Reference Include="DevExpress.Printing.v23.1.Core">
+        <HintPath>C:\Users\Administrator.DESKTOP-KTHCAT9\Desktop\Dev\DevExpress.Printing.v23.1.Core.dll</HintPath>
+      </Reference>
+      <Reference Include="DevExpress.Sparkline.v23.1.Core">
+        <HintPath>C:\Users\Administrator.DESKTOP-KTHCAT9\Desktop\Dev\DevExpress.Sparkline.v23.1.Core.dll</HintPath>
+      </Reference>
+      <Reference Include="DevExpress.Utils.v23.1">
+        <HintPath>C:\Users\Administrator.DESKTOP-KTHCAT9\Desktop\Dev\DevExpress.Utils.v23.1.dll</HintPath>
+      </Reference>
+      <Reference Include="DevExpress.XtraBars.v23.1">
+        <HintPath>C:\Users\Administrator.DESKTOP-KTHCAT9\Desktop\Dev\DevExpress.XtraBars.v23.1.dll</HintPath>
+      </Reference>
+      <Reference Include="DevExpress.XtraEditors.v23.1">
+        <HintPath>C:\Users\Administrator.DESKTOP-KTHCAT9\Desktop\Dev\DevExpress.XtraEditors.v23.1.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+    <ItemGroup>
+      <Compile Update="Properties\Resources.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Resources.resx</DependentUpon>
+      </Compile>
+    </ItemGroup>
+    <ItemGroup>
+      <EmbeddedResource Update="Properties\Resources.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+    </ItemGroup>
+</Project>

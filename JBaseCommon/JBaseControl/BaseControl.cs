@@ -362,13 +362,17 @@ namespace JBaseCommon.BaseControl
             this.sb_Edit.Click += Sb_Edit_Click;
             this.sb_ExportExcel.Click += Sb_ExportExcel_Click;
             this.fGridView.FocusedRowChanged += FGridView_FocusedRowChanged1;
-            fGridControl.DataSourceChanged += FGridControl_DataSourceChanged; ;
+            fGridControl.DataSourceChanged += FGridControl_DataSourceChanged;
+            this.fGridView.MouseDown += FGridView_MouseDown;
         }
 
-       
-
-
       
+
+
+
+
+
+
 
 
 
@@ -718,6 +722,25 @@ namespace JBaseCommon.BaseControl
         #endregion 删除
 
         #endregion 自定义委托事件
+
+
+        #region 双击事件
+        private void FGridView_MouseDown(object sender, MouseEventArgs e)
+        {
+            DevExpress.XtraGrid.Views.Grid.ViewInfo.GridHitInfo hInfo = fGridView.CalcHitInfo(new Point(e.X, e.Y));
+            if (e.Button == MouseButtons.Left && e.Clicks == 2)
+            {
+                // 判断光标是否在行范围内
+                if (hInfo.InRow && hInfo.RowHandle >= 0)
+                {
+                    if (ButtonVisible.IsShowEditButton)
+                    {
+                        AddEdit(false);
+                    }
+                }
+            }
+        }
+        #endregion
         #endregion
 
 

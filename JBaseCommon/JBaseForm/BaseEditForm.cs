@@ -154,7 +154,7 @@ namespace JBaseCommon.JBaseForm
            DialogResult dialog= XtraMessageBox.Show("保存数据成功", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             if (dialog == DialogResult.OK)
             {
-                SaveDataEvent();
+                SaveDataEvent?.Invoke();
                 this.Close();
             }
            
