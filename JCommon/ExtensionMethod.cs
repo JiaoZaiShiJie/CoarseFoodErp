@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -488,6 +490,40 @@ namespace JCommon
 
         }
     }
+    #endregion
+
+    #region Base64ToImage
+
+    public static class BaseConventImageExmethod
+    {
+        public static Image Base64ToImage(this string base64String)
+        {
+            // 去除Base64前缀（如果存在）
+            base64String = RemoveBase64Header(base64String);
+
+            // 将Base64字符串解码为字节数组
+            byte[] imageBytes = Convert.FromBase64String(base64String);
+
+            using (var ms = new MemoryStream(imageBytes))
+            {
+                // 从内存流创建Image对象
+                return Image.FromStream(ms);
+            }
+        }
+        private static string RemoveBase64Header(string base64String)
+        {
+            if (base64String.StartsWith("data:image/"))
+            {
+                int commaIndex = base64String.IndexOf(",");
+                if (commaIndex > 0)
+                {
+                    base64String = base64String.Substring(commaIndex + 1);
+                }
+            }
+            return base64String;
+        }
+    }
+  
     #endregion
 
 

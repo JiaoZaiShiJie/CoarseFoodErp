@@ -41,8 +41,8 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugSymbols>false</DebugSymbols>
-    <DebugType>none</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
@@ -159,11 +159,24 @@
     <Compile Include="CoarseFoodForm\SysSeting\SysSetingForm.Designer.cs">
       <DependentUpon>SysSetingForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CoarseFoodForm\SysUser\SysUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CoarseFoodForm\SysUser\SysUserForm.Designer.cs">
+      <DependentUpon>SysUserForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CoarseFoodForm\UpdatePwd\UpdatePwdForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CoarseFoodForm\UpdatePwd\UpdatePwdForm.Designer.cs">
       <DependentUpon>UpdatePwdForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Model\SysUser.cs" />
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -204,6 +217,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CoarseFoodForm\UpdatePwd\UpdatePwdForm.resx">
       <DependentUpon>UpdatePwdForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -357,6 +373,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="9054803.ico" />
+    <None Include="Resources\bo_customer5.svg" />
+    <None Include="Resources\customer_32x32.png" />
+    <None Include="Resources\bocontact2_32x32.png" />
+    <None Include="Resources\IMG_202403189688_32x32.png" />
+    <None Include="Resources\bo_customer4.svg" />
+    <None Include="Resources\bo_employee1.svg" />
+    <None Include="Resources\login_bg.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Entity\Dto\" />

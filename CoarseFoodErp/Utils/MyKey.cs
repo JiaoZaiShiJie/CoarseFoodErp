@@ -9,8 +9,10 @@ namespace CoarseFoodErp.Utils
 {
     public static class MyKey
     {
-        public static string UserName = "蕉仔";
-        public static string KeyUser = "111334";
+        public static string UserName;
+        public static string KeyUser ;
         public static Image image;
+        public static bool RermberPwd;
+        public static bool AutoLogin;
     }
 }

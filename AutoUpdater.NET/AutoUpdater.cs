@@ -424,6 +424,7 @@ public static class AutoUpdater
                 ParseUpdateInfoEvent(parseArgs);
                 args = parseArgs.UpdateInfo;
             }
+
         }
 
         if (string.IsNullOrEmpty(args?.CurrentVersion) || string.IsNullOrEmpty(args.DownloadURL))

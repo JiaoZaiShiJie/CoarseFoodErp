@@ -17,11 +17,13 @@ using CoarseFoodErp.Properties;
 using CoarseFoodErp.Utils;
 using CoarseFoodErp.Utils.Job;
 using DevExpress.Data.ExpressionEditor;
+using DevExpress.LookAndFeel;
 using DevExpress.XtraBars;
 using DevExpress.XtraBars.Customization;
 using DevExpress.XtraEditors;
 using JBaseCommon;
 using JBaseCommon.JBaseForm;
+using JBaseCommon.Utils;
 using JCommon;
 using JCommon.Jot;
 
@@ -61,22 +63,55 @@ namespace CoarseFoodErp
             btn_Update.ItemClick += Btn_Update_ItemClick;
             bar_LogOut.ItemClick += Bar_LogOut_ItemClick;
             this.FormClosing += MainForm_FormClosing;
-        
+            bar_BtnItemName.Caption=bar_ItemName.Caption = MyKey.UserName;
+            if (MyKey.image!=null)
+            {
+                this.bar_BtnItemName.ImageOptions.Image = MyKey.image;
+            }
         }
         #region 窗体关闭前发生
-        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        private async void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+            DialogResult dr = XtraMessageBox.Show(this, "您确定要退出程序?", "温馨提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+            else
+            {
+                JotConfigService.SetData(E_SysKey.皮肤设置, E_SysKey_Type.皮肤名称, UserLookAndFeel.Default.SkinName);
+                //CloseAllChildForms();
+                await QuartzHelper.CloseScheduler();
+               
+                System.Environment.Exit(0);
+
+            }
+        }
+        #endregion
+
+        #region 切换账号清空静态Key
+        private void CutKey()
+        {
+            MyKey.RermberPwd =MyKey.AutoLogin= false;
+            MyKey.KeyUser =MyKey.UserName= string.Empty;
+            MyKey.image = null;
         }
         #endregion
 
         #region 退出系统
-        private void Bar_LogOut_ItemClick(object sender, ItemClickEventArgs e)
+        private async void Bar_LogOut_ItemClick(object sender, ItemClickEventArgs e)
         {
-            DialogResult dialogResult = XtraMessageBox.Show("是否确认退出系统?", "温馨提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            DialogResult dialogResult = XtraMessageBox.Show("是否需要切换账号登录?", "温馨提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
             if (dialogResult == DialogResult.OK)
             {
-                Close();
+                CutKey();
+                await QuartzHelper.CloseScheduler();
+                FormClosing -= MainForm_FormClosing;
+                JotConfigService.SetData(E_SysKey.皮肤设置, E_SysKey_Type.皮肤名称, UserLookAndFeel.Default.SkinName);
+                var loginForm = new LoginForm();
+                loginForm.Logout = true;
+                loginForm.Show();
+                this.Hide();
             }
         }
         #endregion
